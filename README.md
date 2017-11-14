@@ -63,7 +63,7 @@ Maven Includes Used: https://mvnrepository.com
 
  **Example to show hidden shortcuts**
  
- .mv(destination) equivalent to .pipe("slingPipes/mv").expr(destination)**
+ .mv(destination) equivalent to .pipe("slingPipes/mv").expr(destination)
 
  ```$java
  pipeBuilder.mv("/jcr:root/etc/testpath2");
@@ -95,7 +95,10 @@ Maven Includes Used: https://mvnrepository.com
  
  **Replace**
  
- ```pipeBuilder.xpath("/jcr:root/etc/testpath//*").name("item").write("testProp","${item.testProp.replace('0','new')}");```
+ ```
+ pipeBuilder.xpath("/jcr:root/etc/testpath//*").name("item")
+    .write("testProp","${item.testProp.replace('0','new')}");
+ ```
 
  **test break down chain commands**
  ```$java
