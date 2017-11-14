@@ -2,6 +2,94 @@
 
 This a content package project generated using the AEM Multimodule Lazybones template.
 
+## Setup
+This project uses AEM 6.3.
+
+Maven Includes Used: https://mvnrepository.com
+
+<dependency>
+    <groupId>org.apache.sling</groupId>
+    <artifactId>org.apache.sling.pipes</artifactId>
+    <version>1.1.0</version>
+</dependency>,
+<dependency>
+    <groupId>org.apache.sling</groupId>
+    <artifactId>org.apache.sling.query</artifactId>
+    <version>3.0.0</version>
+</dependency>,
+<dependency>
+    <groupId>javax.json</groupId>
+    <artifactId>javax.json-api</artifactId>
+    <version>1.1.2</version>
+</dependency>,
+<dependency>
+    <groupId>com.google.code.gson</groupId>
+    <artifactId>gson</artifactId>
+    <version>2.3</version>
+</dependency>
+
+## Sample SlingPipes API
+
+
+ // Echo Simplified xpath, both below return the same
+ 
+ pipeBuilder.echo("/etc/testpath");     
+ pipeBuilder.xpath("/jcr:root/etc/testpath")
+
+ // all nodes recursive
+ 
+ pipeBuilder.xpath("/jcr:root/etc/testpath//*")
+
+ // child nodes
+ 
+ pipeBuilder.xpath("/jcr:root/etc/testpath/*")
+
+ // get parent node of results
+ 
+ pipeBuilder.parent();
+
+
+ // make directory under result node
+ 
+ pipeBuilder.mkdir("heyworld");
+
+ // Example to show hidden shortcut, .mv(destination) equivalent to .pipe("slingPipes/mv").expr(destination)
+
+ pipeBuilder.mv("/jcr:root/etc/testpath2");
+ pipeBuilder.pipe("slingPipes/mv").expr("/jcr:root/etc/testpath2").path();
+
+ // xpath
+ 
+ //plumber.newPipe(resolver).xpath("/jcr:root/etc/testpath//[@sling:resourceType=]*").run();
+
+ // remove
+ 
+ //plumber.newPipe(resolver).xpath("/jcr:root/etc/testpath//*").rm().run();
+
+ // move
+ 
+ //plumber.newPipe(resolver).xpath("/jcr:root/etc/testpath//*").path("/home/etc").mv("testpath2").run();
+
+ // write
+ 
+ //plumber.newPipe(resolver).xpath("/jcr:root/etc/testpath//*").write("test","test");
+
+ // condtional
+ 
+ pipeBuilder.xpath("/jcr:root/etc/testpath//*").name("item").write("testProp","${(item.testProp === '2' ? '1' : '3')}");
+ 
+ // replace
+ 
+ pipeBuilder.xpath("/jcr:root/etc/testpath//*").name("item").write("testProp","${item.testProp.replace('0','new')}");
+
+ // test break down chain commands
+ 
+ PipeBuilder pipeBuilder = plumber.newPipe(resolver);
+ 
+ pipeBuilder.xpath("/jcr:root/etc/testpath//*[@testProp]").parent().write("testProp","parent");
+  
+ pipeBuilder.run();
+
 ## Building
 
 This project uses Maven for building. Common commands:
