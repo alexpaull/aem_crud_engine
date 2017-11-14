@@ -1,6 +1,6 @@
 <sly data-sly-use.crudEngine="com.apsk.crud.component.CRUDEngine">
     <div class="crud-engine container-fluid" data-ng-controller="crudEngineCtrl" data-ng-cloak>
-        <h1 class="crud-header">Advanced Search and Replace</h1>
+        <h2 class="crud-header">AEM Property CRUD Engine</h2>
 
         <form class="pipe_form">
             <div class="target row">
@@ -44,11 +44,11 @@
                     <div class="pipe pipe-property form-group">
                         <label>Property</label>
                         <div class="property_operation btn-group" role="group" aria-label="property_operation">
-                            <button type="button" class="btn btn-default" data-ng-class="{active: pipes.property_operation == 'none'}" data-ng-click="pipes.property_operation='none'">None</button>
-                            <button type="button" class="btn btn-default" data-ng-class="{active: pipes.property_operation == 'exists'}" data-ng-click="pipes.property_operation='exists'">Exists</button>
-                            <button type="button" class="btn btn-default" data-ng-class="{active: pipes.property_operation == 'equals'}" data-ng-click="pipes.property_operation='equals'">Equals</button>
-                            <button type="button" class="btn btn-default" data-ng-class="{active: pipes.property_operation == 'unequals'}" data-ng-click="pipes.property_operation='unequals'">Unequals</button>
-                            <button type="button" class="btn btn-default" data-ng-class="{active: pipes.property_operation == 'contains'}" data-ng-click="pipes.property_operation='contains'">Contains</button>
+                            <button title="None: No property filter" type="button" class="btn btn-default" data-ng-class="{active: pipes.property_operation == 'none'}" data-ng-click="pipes.property_operation='none'">None</button>
+                            <button title="Exists: Matches if result has specified property" type="button" class="btn btn-default" data-ng-class="{active: pipes.property_operation == 'exists'}" data-ng-click="pipes.property_operation='exists'">Exists</button>
+                            <button title="Equals: Matches if result's specified property is equal to value" type="button" class="btn btn-default" data-ng-class="{active: pipes.property_operation == 'equals'}" data-ng-click="pipes.property_operation='equals'">Equals</button>
+                            <button title="Unequals: Matches if result's specified property is not equal to value" type="button" class="btn btn-default" data-ng-class="{active: pipes.property_operation == 'unequals'}" data-ng-click="pipes.property_operation='unequals'">Unequals</button>
+                            <button title="Contains: matches if results's specified property contains value" type="button" class="btn btn-default" data-ng-class="{active: pipes.property_operation == 'contains'}" data-ng-click="pipes.property_operation='contains'">Contains</button>
                         </div>
                         <div class="form-group property_value">
                             <label data-ng-hide="pipes.property_operation == 'none'">
@@ -71,7 +71,7 @@
                     <h3>Input</h3>
                     <textarea data-ng-bind="pipes.query" class="form-control" readonly></textarea>
                     <br>
-                    <button class="btn btn-info" data-ng-click="getXpathResults()">Results</button>
+                    <button class="btn btn-primary" data-ng-click="getXpathResults()">Results</button>
                     <br><br>
 
                 </div>
@@ -83,7 +83,7 @@
                     <div class="pipe">
                         <div class="btn-group" role="group" aria-label="pipes_action">
                             <button title="None: No Action Selected" type="button" class="btn btn-default" data-ng-class="{active: pipes.action == 'none'}" data-ng-click="pipes.action='none'">None</button>
-                            <button title="Delete: Removes the matches from the jcr" type="button" class="btn btn-default" data-ng-class="{active: pipes.action == 'delete'}" data-ng-click="pipes.action='delete'">Delete</button>
+                            <button title="Delete: Removes the matches from the JCR" type="button" class="btn btn-default" data-ng-class="{active: pipes.action == 'delete'}" data-ng-click="pipes.action='delete'">Delete</button>
                             <button title="Write: Add or Update property on matches" type="button" class="btn btn-default" data-ng-class="{active: pipes.action == 'write'}" data-ng-click="pipes.action='write'">Write Prop</button>
                             <button title="Replace: Find and Replace Property on matches" type="button" class="btn btn-default" data-ng-class="{active: pipes.action == 'replace'}" data-ng-click="pipes.action='replace'">Replace</button>
                             <button title="Conditional: Apply Conditional on Property from matches" type="button" class="btn btn-default" data-ng-class="{active: pipes.action == 'conditional'}" data-ng-click="pipes.action='conditional'">Conditional</button>

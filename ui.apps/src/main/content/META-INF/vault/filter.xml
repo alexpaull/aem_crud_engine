@@ -2,14 +2,11 @@
 <workspaceFilter version="1.0">
     <filter root="/apps/aem-crud-engine"/>
 
-
-
     <filter root="/etc/clientlibs/aem-crud-engine"/>
-
+    <filter root="/etc/crud-engine"/>
 
     <filter root="/etc/designs/aem-crud-engine">
         <include pattern="/etc/designs/aem-crud-engine/jcr:content"/>
-
     </filter>
 
 </workspaceFilter>
