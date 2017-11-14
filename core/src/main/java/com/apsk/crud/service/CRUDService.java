@@ -18,8 +18,6 @@ import java.util.*;
 public class CRUDService {
 
     private static final String NODE_TYPE_PATH = "/jcr:system/jcr:nodeTypes";
-    private static final String NODE_TYPE_IMAGE_PATH = "/crx/explorer/imgs/nodetypes/cq/";
-    private static final String GIF_FILE_TYPE = ".gif";
 
     private static final String PACKAGE = "package";
     private static final String PARENT = "parent";
@@ -32,7 +30,7 @@ public class CRUDService {
     private static final String FOLDER = "folder";
     private static final String PATH = "path";
     private static final String DELETE = "delete";
-    private static final String MKDIR = "mkdir";
+    private static final String MAKE_DIRECTORY = "mkdir";
     private static final String CONDITION = "condition";
 
     public List<String> getNodeTypes(SlingHttpServletRequest request) {
@@ -106,7 +104,7 @@ public class CRUDService {
                     pipeBuilder.write(action_property, "${item." + action_property + ".replace('" + find + "','" + replace + "')}");
                 } else if (action.equals(CONDITION)) {
                     pipeBuilder.write(action_property, "${(" + condition + ")}");
-                } else if (action.equals(MKDIR)) {
+                } else if (action.equals(MAKE_DIRECTORY)) {
                     pipeBuilder.mkdir(folder);
                 }
 

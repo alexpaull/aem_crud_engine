@@ -1,0 +1,8 @@
+crud-engine.js
+crud-service.js
+
+widget-service.js
+
+angular/modules/CRUDEngineModule.js
+angular/factories/ModalFactory.js
+angular/services/ModalService.js

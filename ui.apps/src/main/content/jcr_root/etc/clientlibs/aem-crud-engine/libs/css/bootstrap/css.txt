@@ -1,0 +1,3 @@
+bootstrap.min.css
+bootstrap-tagsinput.css
+bootstrap.datatables.min.css
