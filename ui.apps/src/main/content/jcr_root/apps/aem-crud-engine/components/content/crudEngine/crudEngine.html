@@ -8,7 +8,7 @@
                     <h3>Search</h3>
                     <div class="pipe pipe-path form-group">
                         <label>
-                            Path <input id="path" type="text" data-ng-init="initTreeLoader()" data-ng-model="pipes.path" class="form-control" value="/"/>
+                            Path <input id="path" type="text" autocomplete="off" data-ng-init="initTreeLoader()" data-ng-model="pipes.path" class="form-control" value="/"/>
                         </label>
                         <div class="path_operation btn-group" role="group" aria-label="path_operation">
                             <button title="Exact: Match the exact path" type="button" class="btn btn-default" data-ng-class="{active: pipes.path_operation == 'exact'}" data-ng-click="pipes.path_operation = 'exact'">Exact</button>
@@ -73,7 +73,6 @@
                     <br>
                     <button class="btn btn-primary" data-ng-click="getXpathResults()">Results</button>
                     <br><br>
-
                 </div>
             </div>
 

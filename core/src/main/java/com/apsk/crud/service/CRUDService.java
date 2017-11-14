@@ -138,7 +138,7 @@ public class CRUDService {
 
     public List<String> getPathsFromXpath(SlingHttpServletRequest request) throws Exception{
 
-        String xpath = request.getParameter("xpath");
+        String xpath = request.getParameter(XPATH);
 
         List<String> paths = new ArrayList<String>();
 

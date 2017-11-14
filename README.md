@@ -1,4 +1,5 @@
-# AEM CRUD ENGINE
+AEM CRUD ENGINE
+===============
 
 This a content package project generated using the AEM Multimodule Lazybones template.
 
@@ -6,52 +7,56 @@ This a content package project generated using the AEM Multimodule Lazybones tem
 This project uses AEM 6.3.
 
 Maven Includes Used: https://mvnrepository.com
-
-<dependency>
-    <groupId>org.apache.sling</groupId>
-    <artifactId>org.apache.sling.pipes</artifactId>
-    <version>1.1.0</version>
-</dependency>,
-<dependency>
-    <groupId>org.apache.sling</groupId>
-    <artifactId>org.apache.sling.query</artifactId>
-    <version>3.0.0</version>
-</dependency>,
-<dependency>
-    <groupId>javax.json</groupId>
-    <artifactId>javax.json-api</artifactId>
-    <version>1.1.2</version>
-</dependency>,
-<dependency>
-    <groupId>com.google.code.gson</groupId>
-    <artifactId>gson</artifactId>
-    <version>2.3</version>
-</dependency>
+<pre>
+<code>
+&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.sling&lt;/groupId&gt;
+    &lt;artifactId&gt;org.apache.sling.pipes&lt;/artifactId&gt;
+    &lt;version&gt;1.1.0&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.sling&lt;/groupId&gt;
+    &lt;artifactId&gt;org.apache.sling.query&lt;/artifactId&gt;
+    &lt;version&gt;3.0.0&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;javax.json&lt;/groupId&gt;
+    &lt;artifactId&gt;javax.json-api&lt;/artifactId&gt;
+    &lt;version&gt;1.1.2&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;com.google.code.gson&lt;/groupId&gt;
+    &lt;artifactId&gt;gson&lt;/artifactId&gt;
+    &lt;version&gt;2.3&lt;/version&gt;
+&lt;/dependency&gt;
+</code>
+</pre>
 
 ## Sample SlingPipes API
 
 
- // Echo Simplified xpath, both below return the same
+ **Echo Simplified xpath, both below return the same**
  
- pipeBuilder.echo("/etc/testpath");     
- pipeBuilder.xpath("/jcr:root/etc/testpath")
-
- // all nodes recursive
+ ```$java
+  pipeBuilder.echo("/etc/testpath");
+  pipeBuilder.xpath("/jcr:root/etc/testpath");
+```
  
- pipeBuilder.xpath("/jcr:root/etc/testpath//*")
-
- // child nodes
+ **All nodes recursive**
  
- pipeBuilder.xpath("/jcr:root/etc/testpath/*")
+ `pipeBuilder.xpath("/jcr:root/etc/testpath//*");`
 
- // get parent node of results
+ **Child nodes**
  
- pipeBuilder.parent();
+ `pipeBuilder.xpath("/jcr:root/etc/testpath/*");`
 
-
- // make directory under result node
+ **Get parent node of results**
  
- pipeBuilder.mkdir("heyworld");
+ `pipeBuilder.parent();`
+
+ **Make directory under result node**
+ 
+ `pipeBuilder.mkdir("heyworld");`
 
  // Example to show hidden shortcut, .mv(destination) equivalent to .pipe("slingPipes/mv").expr(destination)
 
