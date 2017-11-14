@@ -1,0 +1,33 @@
+<div id="OverlayContainer">
+	<div class="modal fade dynamic-message-overlay" id="dynamicMessageOverlay">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h2>Query Results</h2>
+					<button type="button" class="close" ng-click="close(false)" data-dismiss="modal" aria-hidden="true"><div class="icon-close"></div></button>
+				</div>
+				<div class="modal-body text-center ">
+					<h4 class="modal-title">Xpath: {{pass.query}}</h4>
+					<br><br>
+					<div class="dynamic-message-overlay-body">
+						<table id="input_results" class="table table-striped table-bordered" cellspacing="0" width="100%">
+							<thead>
+								<tr>
+									<th>Path</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr data-ng-repeat="result in pass.results">
+									<td>{{result}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" ng-click="close(true)" class="btn btn-primary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

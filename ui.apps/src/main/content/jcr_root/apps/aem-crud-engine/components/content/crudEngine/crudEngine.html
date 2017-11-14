@@ -1,0 +1,157 @@
+<sly data-sly-use.crudEngine="com.apsk.crud.component.CRUDEngine">
+    <div class="crud-engine container-fluid" data-ng-controller="crudEngineCtrl" data-ng-cloak>
+        <h1 class="crud-header">Advanced Search and Replace</h1>
+
+        <form class="pipe_form">
+            <div class="target row">
+                <div class="target_build col-md-6">
+                    <h3>Search</h3>
+                    <div class="pipe pipe-path form-group">
+                        <label>
+                            Path <input id="path" type="text" data-ng-init="initTreeLoader()" data-ng-model="pipes.path" class="form-control" value="/"/>
+                        </label>
+                        <div class="path_operation btn-group" role="group" aria-label="path_operation">
+                            <button title="Exact: Match the exact path" type="button" class="btn btn-default" data-ng-class="{active: pipes.path_operation == 'exact'}" data-ng-click="pipes.path_operation = 'exact'">Exact</button>
+                            <button title="Children: Match the children of the path" type="button" class="btn btn-default" data-ng-class="{active: pipes.path_operation == 'children'}" data-ng-click="pipes.path_operation = 'children'">Children</button>
+                            <button title="Recursive: Match every node under the path" type="button" class="btn btn-default" data-ng-class="{active: pipes.path_operation == 'recursive'}" data-ng-click="pipes.path_operation = 'recursive'">Recursive</button>
+                        </div>
+                    </div>
+
+                    <h3>Filters</h3>
+                    <div class="pipe pipe-node form-group" data-ng-hide="pipes.path_operation == 'exact'">
+                        <label>Node</label>
+                        <div class="path_operation btn-group" role="group" aria-label="node_operation">
+                            <button title="None: Matches to all nodes" type="button" class="btn btn-default" data-ng-class="{active: pipes.node_operation == 'none'}" data-ng-click="pipes.node_operation = 'none'">None</button>
+                            <button title="Name: Matches to specified name" type="button" class="btn btn-default" data-ng-class="{active: pipes.node_operation == 'name'}" data-ng-click="pipes.node_operation = 'name'">Name</button>
+                            <button title="Type: Matches to specified Type" type="button" class="btn btn-default" data-ng-class="{active: pipes.node_operation == 'type'}" data-ng-click="pipes.node_operation = 'type'">Type</button>
+                            <button title="Name and Type: Matches to specified name and type" type="button" class="btn btn-default" data-ng-class="{active: pipes.node_operation == 'nametype'}" data-ng-click="pipes.node_operation = 'nametype'">Name and Type</button>
+                        </div>
+                        <div class="form-group node_value">
+                            <label data-ng-hide="pipes.node_operation == 'none' || pipes.node_operation == 'type'">
+                                Name <input type="text" data-ng-model="pipes.node" class="form-control"/>
+                            </label>
+                            <label data-ng-hide="pipes.node_operation == 'none' || pipes.node_operation == 'name'">
+                                Type <!-- <input type="text" data-ng-model="pipes.node_type" class="form-control"/> -->
+                                <select class="node_type_dropdown" data-ng-model="pipes.node_type">
+                                    <option selected value="none"></option>
+                                    <sly data-sly-list.nodeType="${crudEngine.nodeTypes}">
+                                        <option value="${nodeType}">${nodeType}</option>
+                                    </sly>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="pipe pipe-property form-group">
+                        <label>Property</label>
+                        <div class="property_operation btn-group" role="group" aria-label="property_operation">
+                            <button type="button" class="btn btn-default" data-ng-class="{active: pipes.property_operation == 'none'}" data-ng-click="pipes.property_operation='none'">None</button>
+                            <button type="button" class="btn btn-default" data-ng-class="{active: pipes.property_operation == 'exists'}" data-ng-click="pipes.property_operation='exists'">Exists</button>
+                            <button type="button" class="btn btn-default" data-ng-class="{active: pipes.property_operation == 'equals'}" data-ng-click="pipes.property_operation='equals'">Equals</button>
+                            <button type="button" class="btn btn-default" data-ng-class="{active: pipes.property_operation == 'unequals'}" data-ng-click="pipes.property_operation='unequals'">Unequals</button>
+                            <button type="button" class="btn btn-default" data-ng-class="{active: pipes.property_operation == 'contains'}" data-ng-click="pipes.property_operation='contains'">Contains</button>
+                        </div>
+                        <div class="form-group property_value">
+                            <label data-ng-hide="pipes.property_operation == 'none'">
+                                Type <input type="text" data-ng-model="pipes.property" class="form-control"/>
+                            </label>
+                            <span class="display_operation">
+                                <span data-ng-show="pipes.property_operation == 'equals'">=</span>
+                                <span data-ng-show="pipes.property_operation == 'unequals'">!=</span>
+                                <span data-ng-show="pipes.property_operation == 'contains'">.contains(</span>
+                            </span>
+                            <label data-ng-hide="pipes.property_operation == 'exists' || pipes.property_operation == 'none'">
+                                Value <input type="text" data-ng-model="pipes.property_value" class="form-control"/>
+                            </label>
+                            <span data-ng-show="pipes.property_operation == 'contains'">)</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="target_display form-group col-md-6">
+                    <h3>Input</h3>
+                    <textarea data-ng-bind="pipes.query" class="form-control" readonly></textarea>
+                    <br>
+                    <button class="btn btn-info" data-ng-click="getXpathResults()">Results</button>
+                    <br><br>
+
+                </div>
+            </div>
+
+            <div class="action row">
+                <div class="action_build col-md-6">
+                    <h3>Action</h3>
+                    <div class="pipe">
+                        <div class="btn-group" role="group" aria-label="pipes_action">
+                            <button title="None: No Action Selected" type="button" class="btn btn-default" data-ng-class="{active: pipes.action == 'none'}" data-ng-click="pipes.action='none'">None</button>
+                            <button title="Delete: Removes the matches from the jcr" type="button" class="btn btn-default" data-ng-class="{active: pipes.action == 'delete'}" data-ng-click="pipes.action='delete'">Delete</button>
+                            <button title="Write: Add or Update property on matches" type="button" class="btn btn-default" data-ng-class="{active: pipes.action == 'write'}" data-ng-click="pipes.action='write'">Write Prop</button>
+                            <button title="Replace: Find and Replace Property on matches" type="button" class="btn btn-default" data-ng-class="{active: pipes.action == 'replace'}" data-ng-click="pipes.action='replace'">Replace</button>
+                            <button title="Conditional: Apply Conditional on Property from matches" type="button" class="btn btn-default" data-ng-class="{active: pipes.action == 'conditional'}" data-ng-click="pipes.action='conditional'">Conditional</button>
+                            <button title="Make Directory: Creates Folder on each match" type="button" class="btn btn-default" data-ng-class="{active: pipes.action == 'mkdir'}" data-ng-click="pipes.action='mkdir'">Make Directory</button>
+                        </div>
+                        <div class="action-write form-group" data-ng-show="pipes.action == 'write'">
+                            <label>
+                               Property <input type="text" data-ng-model="pipes.action_property" class="form-control"/>
+                            </label>
+                            <span>=</span>
+                            <label>
+                                Value <input type="text" data-ng-model="pipes.write" class="form-control"/>
+                            </label>
+                        </div>
+                        <div class="action-conditional form-group" data-ng-show="pipes.action == 'conditional'">
+                            <ul>
+                                <li><sub>'item' keyword can be used to recall target properties. e.g. 'item.prop'</sub></li>
+                                <li><sub>Use single quotes</sub></li>
+                            </ul>
+
+                            <label>
+                                Property <input type="text" data-ng-model="pipes.action_property" class="form-control"/>
+                            </label>
+                            <label>
+                                Condition <input type="text" data-ng-model="pipes.condition" class="form-control"/>
+                            </label>
+                        </div>
+                        <div class="action-replace form-group" data-ng-show="pipes.action == 'replace'">
+                            <label>
+                                Property <input type="text" data-ng-model="pipes.action_property" class="form-control"/>
+                            </label>
+                            <label>
+                                Find <input type="text" data-ng-model="pipes.find" class="form-control"/>
+                            </label>
+                            <label>
+                                Replace <input type="text" data-ng-model="pipes.replace" class="form-control"/>
+                            </label>
+                        </div>
+                        <div class="action-mkdir form-group" data-ng-show="pipes.action == 'mkdir'">
+                            <label>
+                                Folder Name <input type="text" data-ng-model="pipes.folder" class="form-control"/>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="action_display form-group col-md-6">
+                    <h3>Output</h3>
+                    <textarea data-ng-bind="pipes.output" class="form-control" readonly></textarea>
+                </div>
+            </div>
+        </form>
+
+        <!-- checkbox for create package -->
+        <div class="pipe-parent form-check">
+            <label class="form-check-label">
+                <input type="checkbox" class="parentInput" data-ng-model="pipes.parent" class="form-check-input">
+                Perform Action on Parents of Results
+            </label>
+        </div>
+        <div class="pipe-package form-check">
+            <label class="create-package-label">
+                <input type="checkbox" class="packageInput" data-ng-model="pipes.package" class="form-check-input">
+                Create Backup Package
+            </label>
+        </div>
+
+        <div>
+            <button class="btn btn-primary" data-ng-click="run()">Run</button>
+        </div>
+    </div>
+</sly>
