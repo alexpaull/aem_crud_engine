@@ -71,22 +71,31 @@ Maven Includes Used: https://mvnrepository.com
  ```
 
  **xpath**
- `plumber.newPipe(resolver).xpath("/jcr:root/etc/testpath//[@sling:resourceType=]*").run();`
+ 
+ ```plumber.newPipe(resolver).xpath("/jcr:root/etc/testpath//[@sling:resourceType=]*").run();```
 
  **Remove**
- `plumber.newPipe(resolver).xpath("/jcr:root/etc/testpath//*").rm().run();`
+ 
+ ```plumber.newPipe(resolver).xpath("/jcr:root/etc/testpath//*").rm().run();```
 
  **Move**
- `plumber.newPipe(resolver).xpath("/jcr:root/etc/testpath//*").path("/home/etc").mv("testpath2").run();`
+ 
+ ```plumber.newPipe(resolver).xpath("/jcr:root/etc/testpath//*").path("/home/etc").mv("testpath2").run();```
 
  **Write**
- `plumber.newPipe(resolver).xpath("/jcr:root/etc/testpath//*").write("test","test");`
+ 
+ ```plumber.newPipe(resolver).xpath("/jcr:root/etc/testpath//*").write("test","test");```
 
  **Conditional**
- `pipeBuilder.xpath("/jcr:root/etc/testpath//*").name("item").write("testProp","${(item.testProp === '2' ? '1' : '3')}");`
+ 
+ ```
+ pipeBuilder.xpath("/jcr:root/etc/testpath//*").name("item")
+    .write("testProp","${(item.testProp === '2' ? '1' : '3')}");
+ ```
  
  **Replace**
- `pipeBuilder.xpath("/jcr:root/etc/testpath//*").name("item").write("testProp","${item.testProp.replace('0','new')}");`
+ 
+ ```pipeBuilder.xpath("/jcr:root/etc/testpath//*").name("item").write("testProp","${item.testProp.replace('0','new')}");```
 
  **test break down chain commands**
  ```$java
