@@ -4,7 +4,10 @@ AEM CRUD ENGINE
 This a content package project generated using the AEM Multimodule Lazybones template.
 
 ## Setup
-This project uses AEM 6.3.
+This project uses:
+* AEM 6.3
+* Java 1.8
+* Maven 3.2
 
 Maven Includes Used: https://mvnrepository.com
 <pre>
@@ -58,42 +61,39 @@ Maven Includes Used: https://mvnrepository.com
  
  `pipeBuilder.mkdir("heyworld");`
 
- // Example to show hidden shortcut, .mv(destination) equivalent to .pipe("slingPipes/mv").expr(destination)
+ **Example to show hidden shortcuts**
+ 
+ .mv(destination) equivalent to .pipe("slingPipes/mv").expr(destination)**
 
+ ```$java
  pipeBuilder.mv("/jcr:root/etc/testpath2");
  pipeBuilder.pipe("slingPipes/mv").expr("/jcr:root/etc/testpath2").path();
+ ```
 
- // xpath
- 
- //plumber.newPipe(resolver).xpath("/jcr:root/etc/testpath//[@sling:resourceType=]*").run();
+ **xpath**
+ `plumber.newPipe(resolver).xpath("/jcr:root/etc/testpath//[@sling:resourceType=]*").run();`
 
- // remove
- 
- //plumber.newPipe(resolver).xpath("/jcr:root/etc/testpath//*").rm().run();
+ **Remove**
+ `plumber.newPipe(resolver).xpath("/jcr:root/etc/testpath//*").rm().run();`
 
- // move
- 
- //plumber.newPipe(resolver).xpath("/jcr:root/etc/testpath//*").path("/home/etc").mv("testpath2").run();
+ **Move**
+ `plumber.newPipe(resolver).xpath("/jcr:root/etc/testpath//*").path("/home/etc").mv("testpath2").run();`
 
- // write
- 
- //plumber.newPipe(resolver).xpath("/jcr:root/etc/testpath//*").write("test","test");
+ **Write**
+ `plumber.newPipe(resolver).xpath("/jcr:root/etc/testpath//*").write("test","test");`
 
- // condtional
+ **Conditional**
+ `pipeBuilder.xpath("/jcr:root/etc/testpath//*").name("item").write("testProp","${(item.testProp === '2' ? '1' : '3')}");`
  
- pipeBuilder.xpath("/jcr:root/etc/testpath//*").name("item").write("testProp","${(item.testProp === '2' ? '1' : '3')}");
- 
- // replace
- 
- pipeBuilder.xpath("/jcr:root/etc/testpath//*").name("item").write("testProp","${item.testProp.replace('0','new')}");
+ **Replace**
+ `pipeBuilder.xpath("/jcr:root/etc/testpath//*").name("item").write("testProp","${item.testProp.replace('0','new')}");`
 
- // test break down chain commands
- 
+ **test break down chain commands**
+ ```$java
  PipeBuilder pipeBuilder = plumber.newPipe(resolver);
- 
  pipeBuilder.xpath("/jcr:root/etc/testpath//*[@testProp]").parent().write("testProp","parent");
-  
  pipeBuilder.run();
+```
 
 ## Building
 
@@ -111,9 +111,9 @@ To use this project with the AEM Developer Tools for Eclipse, import the generat
 
 To use vlt with this project, first build and install the package to your local CQ instance as described above. Then cd to `content/src/main/content/jcr_root` and run
 
-    vlt --credentials admin:admin checkout -f ../META-INF/vault/filter.xml --force http://localhost:4502/crx
+`vlt --credentials admin:admin checkout -f ../META-INF/vault/filter.xml --force http://localhost:4502/crx`
 
-Once the working copy is created, you can use the normal ``vlt up`` and ``vlt ci`` commands.
+Once the working copy is created, you can use the normal `vlt up` and `vlt ci` commands.
 
 ## Specifying CRX Host/Port
 
