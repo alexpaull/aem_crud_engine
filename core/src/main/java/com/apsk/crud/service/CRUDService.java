@@ -20,6 +20,7 @@ public class CRUDService {
     private static final String NODE_TYPE_PATH = "/jcr:system/jcr:nodeTypes";
 
     private static final String PACKAGE = "package";
+    private static final String PACKAGE_NAME = "package_name";
     private static final String PARENT = "parent";
     private static final String XPATH = "xpath";
     private static final String ACTION = "action";
@@ -32,6 +33,8 @@ public class CRUDService {
     private static final String DELETE = "delete";
     private static final String MAKE_DIRECTORY = "mkdir";
     private static final String CONDITION = "condition";
+
+    private static final String CRUD_ENGINE_PACKAGE = "crudEnginePackage";
 
     public List<String> getNodeTypes(SlingHttpServletRequest request) {
         List<String> nodeTypes = new ArrayList<String>();
@@ -62,6 +65,7 @@ public class CRUDService {
         ResourceResolver resolver = request.getResourceResolver();
 
         String getPackage = request.getParameter(PACKAGE);
+        String package_name = request.getParameter(PACKAGE_NAME);
         String parent = request.getParameter(PARENT);
         String xpath = request.getParameter(XPATH);
         String action = request.getParameter(ACTION);
@@ -74,7 +78,7 @@ public class CRUDService {
         String condition = request.getParameter(CONDITION);
 
         if (getPackage != null){
-            createPackage(resolver, path, packageHelper);
+            createPackage(resolver, path, packageHelper, package_name);
         }
 
         if (xpath != null) {
@@ -117,7 +121,9 @@ public class CRUDService {
         }
     }
 
-    private void createPackage(ResourceResolver resolver, String path, PackageHelper packageHelper){
+    private void createPackage(ResourceResolver resolver, String path, PackageHelper packageHelper, String package_name){
+
+
 
         // get session from request
         Session session = resolver.adaptTo(Session.class);
@@ -130,7 +136,7 @@ public class CRUDService {
         Map<String,String> definitionMap = new HashMap<String,String>();
 
         try {
-            packageHelper.createPackageForPaths(pathCollection, session, "crudBackupPackage", "backupPackage", "0", PackageHelper.ConflictResolution.IncrementVersion, definitionMap);
+            packageHelper.createPackageForPaths(pathCollection, session, CRUD_ENGINE_PACKAGE, package_name, "0", PackageHelper.ConflictResolution.IncrementVersion, definitionMap);
         } catch (Exception e){
             e.printStackTrace();
         }

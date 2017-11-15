@@ -20,15 +20,27 @@ angular.module("CRUDEngineCtrl",[])
         };
 
         $scope.getXpathResults = function(){
+
+            // clear any old overlays to prevent datatable issues
+            $('.dynamic-message-overlay').remove();
+
             crudEngine.xpathQuery($scope.pipes.query, function(response){
                 if (response && response.responseText){
                     var query_result = JSON.parse(response.responseText);
                     var $pass = {
                         "results": query_result,
                         "query": $scope.pipes.query
-                    }
+                    };
+
+                    $scope.pipes.first_path = query_result[0];
 
                     modalFactory.triggerModal("/etc/crud-engine/overlay.html", "overlayCtrl", $pass);
+
+                    crudEngine.firstResult(query_result[0], function(response){
+                        if (response.responseText) {
+                            $scope.pipes.first_props = JSON.parse(response.responseText);
+                        }
+                    });
                 }
             });
         };
@@ -96,7 +108,7 @@ angular.module("CRUDEngineCtrl",[])
             } else if ($scope.pipes.property_operation == 'exists'){
                 xpath += "[@" + $scope.pipes.property + "]";
             } else if ($scope.pipes.property_operation == 'equals'){
-                xpath += "[@" + $scope.pipes.property + " = " + $scope.pipes.property_value + "]";
+                xpath += "[@" + $scope.pipes.property + " = '" + $scope.pipes.property_value + "']";
             } else if ($scope.pipes.property_operation == 'unequals'){
                 xpath += "[@" + $scope.pipes.property + " != '" + $scope.pipes.property_value + "']";
             } else {
@@ -119,6 +131,7 @@ angular.module("CRUDEngineCtrl",[])
             }
             if ($scope.pipes.package){
                 flags += "&package=" + $scope.pipes.package;
+                flags += "&package_name=" + $scope.pipes.package_name;
             }
 
             return flags;

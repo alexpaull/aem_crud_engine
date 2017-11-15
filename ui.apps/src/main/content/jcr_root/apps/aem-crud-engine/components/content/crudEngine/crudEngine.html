@@ -33,7 +33,6 @@
                             <label data-ng-hide="pipes.node_operation == 'none' || pipes.node_operation == 'name'">
                                 Type <!-- <input type="text" data-ng-model="pipes.node_type" class="form-control"/> -->
                                 <select class="node_type_dropdown" data-ng-model="pipes.node_type">
-                                    <option selected value="none"></option>
                                     <sly data-sly-list.nodeType="${crudEngine.nodeTypes}">
                                         <option value="${nodeType}">${nodeType}</option>
                                     </sly>
@@ -65,13 +64,18 @@
                             <span data-ng-show="pipes.property_operation == 'contains'">)</span>
                         </div>
                     </div>
-
+                    <div class="pipe-parent form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="parentInput" data-ng-model="pipes.parent" class="form-check-input">
+                            Perform Action on Parents of Results
+                        </label>
+                    </div>
                 </div>
                 <div class="target_display form-group col-md-6">
                     <h3>Input</h3>
                     <textarea data-ng-bind="pipes.query" class="form-control" readonly></textarea>
                     <br>
-                    <button class="btn btn-primary" data-ng-click="getXpathResults()">Results</button>
+                    <button class="btn btn-primary" data-ng-click="getXpathResults()">Show Results</button>
                     <br><br>
                 </div>
             </div>
@@ -98,16 +102,34 @@
                             </label>
                         </div>
                         <div class="action-conditional form-group" data-ng-show="pipes.action == 'conditional'">
-                            <ul>
-                                <li><sub>'item' keyword can be used to recall target properties. e.g. 'item.prop'</sub></li>
-                                <li><sub>Use single quotes</sub></li>
-                            </ul>
-
                             <label>
                                 Property <input type="text" data-ng-model="pipes.action_property" class="form-control"/>
                             </label>
+                            <span> = </span>
+                            <br>
+                            <span>(</span>
                             <label>
-                                Condition <input type="text" data-ng-model="pipes.condition" class="form-control"/>
+                                Property <input type="text" data-ng-model="pipes.condition" class="form-control"/>
+                            </label>
+                            <select class="condition_operation" data-ng-model="pipes.condition_operation">
+                                <option value="==" selected>==</option>
+                                <option value="===">===</option>
+                                <option value="<">&lt;</option>
+                                <option value="<=">&lt;=</option>
+                                <option value=">">&gt;</option>
+                                <option value=">=">&gt;=</option>
+                                <option value="!=">!=</option>
+                            </select>
+                            <label>
+                                Value <input type="text" data-ng-model="pipes.equals" class="form-control"/>
+                            </label>
+                            <span>) ? </span>
+                            <label>
+                                Value <input type="text" data-ng-model="pipes.true_value" class="form-control"/>
+                            </label>
+                            <span> : </span>
+                            <label>
+                                Value <input type="text" data-ng-model="pipes.false_value" class="form-control"/>
                             </label>
                         </div>
                         <div class="action-replace form-group" data-ng-show="pipes.action == 'replace'">
@@ -128,27 +150,40 @@
                         </div>
                     </div>
                 </div>
-                <div class="action_display form-group col-md-6">
+                <div class="action_display form-group col-md-6" >
                     <h3>Output</h3>
                     <textarea data-ng-bind="pipes.output" class="form-control" readonly></textarea>
+                    <h3 data-ng-show="pipes.first_props">First Result Sample</h3>
+                    <h5 data-ng-show="pipes.first_props">Path: <span data-ng-bind="pipes.first_path"></span></h5>
+                    <table class="table table-bordered table-striped" data-ng-show="pipes.first_props">
+                        <thead>
+                            <tr>
+                                <th>Property Name</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="(key, value) in pipes.first_props track by $index">
+                                <td>{{key}}</td>
+                                <td>{{value}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </form>
 
         <!-- checkbox for create package -->
-        <div class="pipe-parent form-check">
-            <label class="form-check-label">
-                <input type="checkbox" class="parentInput" data-ng-model="pipes.parent" class="form-check-input">
-                Perform Action on Parents of Results
-            </label>
-        </div>
         <div class="pipe-package form-check">
             <label class="create-package-label">
                 <input type="checkbox" class="packageInput" data-ng-model="pipes.package" class="form-check-input">
                 Create Backup Package
             </label>
+            <br>
+            <label data-ng-show="pipes.package">
+                Package Name <input type="text" data-ng-model="pipes.package_name" class="form-control"/>
+            </label>
         </div>
-
         <div>
             <button class="btn btn-primary" data-ng-click="run()">Run</button>
         </div>
