@@ -9,4 +9,6 @@
         <include pattern="/etc/designs/aem-crud-engine/jcr:content"/>
     </filter>
 
+    <filter root="/content/dam/crud-engine"/>
+
 </workspaceFilter>

@@ -1,6 +1,7 @@
 package com.apsk.crud.service;
 
 import com.adobe.acs.commons.packaging.PackageHelper;
+import org.apache.jackrabbit.vault.packaging.JcrPackage;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -33,8 +34,13 @@ public class CRUDService {
     private static final String DELETE = "delete";
     private static final String MAKE_DIRECTORY = "mkdir";
     private static final String CONDITION = "condition";
+    private static final String CONDITION_OPERATION = "condition_operation";
+    private static final String CONDITION_VALUE = "condition_value";
+    private static final String EXPR1 = "expr1";
+    private static final String EXPR2 = "expr2";
 
-    private static final String CRUD_ENGINE_PACKAGE = "crudEnginePackage";
+    private static final String CRUD_ENGINE_PACKAGES = "crud-engine-packages";
+    private static final String THUMBNAIL = "/content/dam/crud-engine/Backup.png";
 
     public List<String> getNodeTypes(SlingHttpServletRequest request) {
         List<String> nodeTypes = new ArrayList<String>();
@@ -76,6 +82,10 @@ public class CRUDService {
         String folder = request.getParameter(FOLDER);
         String path = request.getParameter(PATH);
         String condition = request.getParameter(CONDITION);
+        String condition_operation = request.getParameter(CONDITION_OPERATION);
+        String condition_value = request.getParameter(CONDITION_VALUE);
+        String expr1 = request.getParameter(EXPR1);
+        String expr2 = request.getParameter(EXPR2);
 
         if (getPackage != null){
             createPackage(resolver, path, packageHelper, package_name);
@@ -88,6 +98,7 @@ public class CRUDService {
                 // test break down chain commands
                 PipeBuilder pipeBuilder = plumber.newPipe(resolver);
 
+                /*
                 // add xpath to pipe builder
                 pipeBuilder.xpath(xpath);
 
@@ -107,12 +118,14 @@ public class CRUDService {
                 } else if (action.equals(REPLACE)) {
                     pipeBuilder.write(action_property, "${item." + action_property + ".replace('" + find + "','" + replace + "')}");
                 } else if (action.equals(CONDITION)) {
-                    pipeBuilder.write(action_property, "${(" + condition + ")}");
+                    String ternary = condition + " " + condition_operation + " '" + condition_value + "' ? '" + expr1 + "' : '" + expr2 + "'";
+                    pipeBuilder.write(action_property, "${(" + ternary + ")}");
                 } else if (action.equals(MAKE_DIRECTORY)) {
                     pipeBuilder.mkdir(folder);
                 }
+                */
 
-                //pipeBuilder.xpath("/jcr:root/etc/testpath//*").name("item").write("testProp","${(item.testProp === '2' ? '1' : '3')}");
+                pipeBuilder.xpath("/jcr:root/etc/testpath").path("/etc/testpath").name("test").mv("${path.test}/heyworld/temp/sample").path("${path.test}/heyworld/child/testing").run();
 
                 pipeBuilder.run();
 
@@ -122,8 +135,6 @@ public class CRUDService {
     }
 
     private void createPackage(ResourceResolver resolver, String path, PackageHelper packageHelper, String package_name){
-
-
 
         // get session from request
         Session session = resolver.adaptTo(Session.class);
@@ -136,7 +147,9 @@ public class CRUDService {
         Map<String,String> definitionMap = new HashMap<String,String>();
 
         try {
-            packageHelper.createPackageForPaths(pathCollection, session, CRUD_ENGINE_PACKAGE, package_name, "0", PackageHelper.ConflictResolution.IncrementVersion, definitionMap);
+            JcrPackage jcrPackage = packageHelper.createPackageForPaths(pathCollection, session, CRUD_ENGINE_PACKAGES, package_name, "0", PackageHelper.ConflictResolution.IncrementVersion, definitionMap);
+            Resource thumbnail = resolver.getResource(THUMBNAIL);
+            packageHelper.addThumbnail(jcrPackage,thumbnail);
         } catch (Exception e){
             e.printStackTrace();
         }

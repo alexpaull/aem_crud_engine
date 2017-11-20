@@ -109,7 +109,7 @@
                             <br>
                             <span>(</span>
                             <label>
-                                Property <input type="text" data-ng-model="pipes.condition" class="form-control"/>
+                                Condition <input type="text" data-ng-model="pipes.condition" class="form-control"/>
                             </label>
                             <select class="condition_operation" data-ng-model="pipes.condition_operation">
                                 <option value="==" selected>==</option>
@@ -121,15 +121,15 @@
                                 <option value="!=">!=</option>
                             </select>
                             <label>
-                                Value <input type="text" data-ng-model="pipes.equals" class="form-control"/>
+                                Value <input type="text" data-ng-model="pipes.condition_value" class="form-control"/>
                             </label>
                             <span>) ? </span>
                             <label>
-                                Value <input type="text" data-ng-model="pipes.true_value" class="form-control"/>
+                                Expr1 <input type="text" data-ng-model="pipes.expr1" class="form-control"/>
                             </label>
                             <span> : </span>
                             <label>
-                                Value <input type="text" data-ng-model="pipes.false_value" class="form-control"/>
+                                Expr2 <input type="text" data-ng-model="pipes.expr2" class="form-control"/>
                             </label>
                         </div>
                         <div class="action-replace form-group" data-ng-show="pipes.action == 'replace'">

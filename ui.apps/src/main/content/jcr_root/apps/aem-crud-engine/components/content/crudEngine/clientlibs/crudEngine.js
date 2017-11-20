@@ -114,9 +114,19 @@ angular.module("CRUDEngineCtrl",[])
             } else {
                 // contains
                 if ($scope.pipes.property && $scope.pipes.property_value){
-                    xpath += "[jcr:contains(@" + $scope.pipes.property + ",'" + $scope.pipes.property_value + "')]";
+                    xpath += "[jcr:contains(@" + $scope.pipes.property + ",";
+                    if ($scope.pipes.property_value.indexOf("@") != -1){
+                        xpath += $scope.pipes.property_value + ")]";
+                    } else {
+                       xpath += "'" + $scope.pipes.property_value + "')]";
+                    }
                 } else if ($scope.pipes.property_value){
-                    xpath += "[jcr:contains(.,'" + $scope.pipes.property_value + "')]";
+                    xpath += "[jcr:contains(.,";
+                    if ($scope.pipes.property_value.indexOf("@") != -1){
+                        xpath += $scope.pipes.property_value + ")]";
+                    } else {
+                        xpath += "'" + $scope.pipes.property_value + "')]";
+                    }
                 }
             }
 
@@ -157,7 +167,10 @@ angular.module("CRUDEngineCtrl",[])
                 } else if ($scope.pipes.action == 'conditional'){
                     outputParam += "action_property=" + $scope.pipes.action_property + "&";
                     outputParam += "condition=" + $scope.pipes.condition;
-
+                    outputParam += "condition_operation=" + $scope.pipes.condition_opetation;
+                    outputParam += "condition_value=" + $scope.pipes.condition_value;
+                    outputParam += "expr1=" + $scope.pipes.expr1;
+                    outputParam += "expr2=" + $scope.pipes.expr2;
                 } else if ($scope.pipes.action == 'mkdir'){
                     outputParam += "folder=" + $scope.pipes.folder;
                 }
