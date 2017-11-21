@@ -35,7 +35,7 @@ Maven Includes Used: https://mvnrepository.com
 </code>
 </pre>
 
-## Sample SlingPipes API
+## Sample SlingPipes API - Based on 1.1.0
 
 
  **Echo Simplified xpath, both below return the same**
@@ -78,11 +78,11 @@ Maven Includes Used: https://mvnrepository.com
  
  ```plumber.newPipe(resolver).xpath("/jcr:root/etc/testpath//*").rm().run();```
 
- **Move**
- 
- ```plumber.newPipe(resolver).xpath("/jcr:root/etc/testpath//*").path("/home/etc").mv("testpath2").run();```
+ **Move Property**
 
- **Write**
+ ```pipeBuilder.xpath("/jcr:root/etc/testpath").path("/etc/testpath").name("test").mv("${path.test}/heyworld/temp/sample").path("${path.test}/heyworld/child/testing").run();```
+
+ **Write Property**
  
  ```plumber.newPipe(resolver).xpath("/jcr:root/etc/testpath//*").write("test","test");```
 

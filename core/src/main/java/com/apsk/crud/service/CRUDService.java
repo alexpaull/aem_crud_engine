@@ -1,12 +1,24 @@
 package com.apsk.crud.service;
 
 import com.adobe.acs.commons.packaging.PackageHelper;
+
+import org.apache.jackrabbit.vault.fs.api.ProgressTrackerListener;
+import org.apache.jackrabbit.vault.util.DefaultProgressListener;
+
+//import com.day.jcr.vault.fs.api.ProgressTrackerListener;
+//import com.day.jcr.vault.fs.config.DefaultWorkspaceFilter;
+
+import org.apache.jackrabbit.vault.packaging.Packaging;
 import org.apache.jackrabbit.vault.packaging.JcrPackage;
+import org.apache.jackrabbit.vault.packaging.JcrPackageManager;
+
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.pipes.PipeBuilder;
-import org.apache.sling.pipes.Plumber;
+//import org.apache.sling.pipes.PipeBuilder;
+import com.apsk.pipes.PipeBuilder;
+//import org.apache.sling.pipes.Plumber;
+import com.apsk.pipes.Plumber;
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
@@ -66,7 +78,7 @@ public class CRUDService {
     }
 
     // prevents deploy from overwriting
-    public void runCRUD(SlingHttpServletRequest request, Plumber plumber, PackageHelper packageHelper){
+    public void runCRUD(SlingHttpServletRequest request, Plumber plumber, Packaging packaging, PackageHelper packageHelper){
 
         ResourceResolver resolver = request.getResourceResolver();
 
@@ -88,7 +100,7 @@ public class CRUDService {
         String expr2 = request.getParameter(EXPR2);
 
         if (getPackage != null){
-            createPackage(resolver, path, packageHelper, package_name);
+            createPackage(resolver, path, packaging, packageHelper, package_name);
         }
 
         if (xpath != null) {
@@ -98,7 +110,6 @@ public class CRUDService {
                 // test break down chain commands
                 PipeBuilder pipeBuilder = plumber.newPipe(resolver);
 
-                /*
                 // add xpath to pipe builder
                 pipeBuilder.xpath(xpath);
 
@@ -122,10 +133,15 @@ public class CRUDService {
                     pipeBuilder.write(action_property, "${(" + ternary + ")}");
                 } else if (action.equals(MAKE_DIRECTORY)) {
                     pipeBuilder.mkdir(folder);
-                }
-                */
+                } else if (action.equals("move")){
 
-                pipeBuilder.xpath("/jcr:root/etc/testpath").path("/etc/testpath").name("test").mv("${path.test}/heyworld/temp/sample").path("${path.test}/heyworld/child/testing").run();
+                } else if (action.equals("copy")){
+
+                } else if (action.equals("moveNode")){
+
+                } else if (action.equals("copyNode")) {
+
+                }
 
                 pipeBuilder.run();
 
@@ -134,7 +150,7 @@ public class CRUDService {
         }
     }
 
-    private void createPackage(ResourceResolver resolver, String path, PackageHelper packageHelper, String package_name){
+    private void createPackage(ResourceResolver resolver, String path, Packaging packaging, PackageHelper packageHelper, String package_name){
 
         // get session from request
         Session session = resolver.adaptTo(Session.class);
@@ -146,10 +162,17 @@ public class CRUDService {
         // empty definitions map for package method
         Map<String,String> definitionMap = new HashMap<String,String>();
 
+        JcrPackageManager jcrPackageManager = packaging.getPackageManager(session);
+
+        ProgressTrackerListener listener = new DefaultProgressListener();
+
         try {
             JcrPackage jcrPackage = packageHelper.createPackageForPaths(pathCollection, session, CRUD_ENGINE_PACKAGES, package_name, "0", PackageHelper.ConflictResolution.IncrementVersion, definitionMap);
             Resource thumbnail = resolver.getResource(THUMBNAIL);
             packageHelper.addThumbnail(jcrPackage,thumbnail);
+
+            jcrPackageManager.assemble(jcrPackage,listener);
+
         } catch (Exception e){
             e.printStackTrace();
         }

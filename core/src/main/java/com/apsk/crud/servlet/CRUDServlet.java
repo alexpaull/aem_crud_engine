@@ -4,10 +4,11 @@ import com.adobe.acs.commons.packaging.PackageHelper;
 import com.apsk.crud.service.CRUDService;
 import org.apache.felix.scr.annotations.Reference;
 import org.apache.felix.scr.annotations.sling.SlingServlet;
+import org.apache.jackrabbit.vault.packaging.Packaging;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
-import org.apache.sling.pipes.Plumber;
+import com.apsk.pipes.Plumber;
 
 import javax.servlet.ServletException;
 import java.io.IOException;
@@ -26,6 +27,9 @@ public class CRUDServlet extends SlingSafeMethodsServlet {
     private Plumber plumber;
 
     @Reference
+    private Packaging packaging;
+
+    @Reference
     private PackageHelper packageHelper;
 
     @Override
@@ -33,6 +37,6 @@ public class CRUDServlet extends SlingSafeMethodsServlet {
             ServletException, IOException {
 
         CRUDService crudService = new CRUDService();
-        crudService.runCRUD(request, plumber, packageHelper);
+        crudService.runCRUD(request, plumber, packaging, packageHelper);
     }
 }
