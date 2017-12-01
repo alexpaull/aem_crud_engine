@@ -199,4 +199,9 @@ public class CRUDService {
 
         return paths;
     }
+
+    public String getXpathFromQueryBuilder(SlingHttpServletRequest request, String querybuilder){
+
+        return "";
+    }
 }

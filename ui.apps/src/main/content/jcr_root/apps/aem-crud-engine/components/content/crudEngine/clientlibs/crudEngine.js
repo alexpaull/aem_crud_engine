@@ -10,6 +10,9 @@ angular.module("CRUDEngineCtrl",[])
         $scope.pipes.node = "*";
         $scope.pipes.node_operation = 'none';
 
+        // set active tab to simple
+        $scope.pipes.query_type = 'simple';
+
         $scope.run = function(){
             crudEngine.runQuery(getServletRequest());
         };
@@ -54,7 +57,10 @@ angular.module("CRUDEngineCtrl",[])
             'pipes.property',
             'pipes.node',
             'pipes.node_operation',
-            'pipes.node_type'
+            'pipes.node_type',
+            'pipes.query_type',
+            'pipes.xpath_query',
+            'pipes.querybuilder_query'
         ], function(){
             updateInputFromPipes();
         });
@@ -66,7 +72,11 @@ angular.module("CRUDEngineCtrl",[])
             'pipes.folder',
             'pipes.write',
             'pipes.condition',
-            'pipes.action_property'
+            'pipes.action_property',
+            'pipes.condition_operation',
+            'pipes.condition_value',
+            'pipes.expr1',
+            'pipes.expr2'
         ], function(){
             updateOutputFromPipes();
         });
@@ -75,7 +85,15 @@ angular.module("CRUDEngineCtrl",[])
             return "?path=" + $scope.pipes.path + "&xpath=" + $scope.pipes.query + "&" + $scope.pipes.output + getFlagsFromPipes();
         }
 
-        function updateInputFromPipes(){
+        function updateInputForXPath(){
+            $scope.pipes.query = $scope.pipes.xpath_query;
+        }
+
+        function updateInputForQueryBuilder(){
+            //crudEngine.
+        }
+
+        function updateInputForSimple(){
             var xpath = "/jcr:root";
 
             // adding path to xpath
@@ -118,7 +136,7 @@ angular.module("CRUDEngineCtrl",[])
                     if ($scope.pipes.property_value.indexOf("@") != -1){
                         xpath += $scope.pipes.property_value + ")]";
                     } else {
-                       xpath += "'" + $scope.pipes.property_value + "')]";
+                        xpath += "'" + $scope.pipes.property_value + "')]";
                     }
                 } else if ($scope.pipes.property_value){
                     xpath += "[jcr:contains(.,";
@@ -131,6 +149,27 @@ angular.module("CRUDEngineCtrl",[])
             }
 
             $scope.pipes.query = xpath;
+        }
+
+        function updateInputForAdvanced(){
+
+        }
+
+
+        // handler to determine which query to use for update
+        function updateInputFromPipes(){
+            if ($scope.pipes.query_type == 'simple'){
+                updateInputForSimple();
+
+            } else if ($scope.pipes.query_type == 'advanced'){
+                updateInputForAdvanced();
+
+            } else if ($scope.pipes.query_type == 'xpath'){
+                updateInputForXPath();
+
+            } else if ($scope.pipes.query_type == 'querybuilder'){
+                updateInputForQueryBuilder();
+            }
         }
 
         function getFlagsFromPipes(){
