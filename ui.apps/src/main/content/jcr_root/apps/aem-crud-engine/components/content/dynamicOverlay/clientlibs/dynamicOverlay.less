@@ -2,4 +2,17 @@
 	.modal-dialog{
 	    width: 80%;
 	}
+
+    margin: -23px 0 0 0 !important;
+}
+
+body[class~="coral-Modal.is-open"]{
+  .coral-Modal-backdrop{
+    z-index: 100;
+  }
+
+  .modal{
+    overflow: scroll;
+  }
+  overflow: hidden;
 }

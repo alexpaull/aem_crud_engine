@@ -51,16 +51,11 @@
                                 </label>
                                 <label data-ng-hide="pipes.node_operation == 'name'">
                                     <h5>Type</h5>
-                                    <!-- <select class="node_type_dropdown" data-ng-model="pipes.node_type">
+                                    <select class="node_type_dropdown" data-ng-model="pipes.node_type">
                                         <sly data-sly-list.nodeType="${crudEngine.nodeTypes}">
                                             <option value="${nodeType}">${nodeType}</option>
                                         </sly>
-                                    </select> -->
-                                    <coral-autocomplete placeholder="Node Type" match="contains" icon="None">
-                                        <sly data-sly-list.nodeType="${crudEngine.nodeTypes}">
-                                            <coral-autocomplete-item value="${nodeType}">${nodeType}</coral-autocomplete-item>
-                                        </sly>
-                                    </coral-autocomplete>
+                                    </select>
                                 </label>
                             </div>
                         </div>

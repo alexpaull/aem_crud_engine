@@ -25,7 +25,7 @@ angular.module("CRUDEngineCtrl",[])
         $scope.getXpathResults = function(){
 
             // clear any old overlays to prevent datatable issues
-            $('.dynamic-message-overlay').remove();
+            angular.element('.dynamic-message-overlay').remove();
 
             crudEngine.xpathQuery($scope.pipes.query, function(response){
                 if (response && response.responseText){
@@ -79,6 +79,22 @@ angular.module("CRUDEngineCtrl",[])
             'pipes.expr2'
         ], function(){
             updateOutputFromPipes();
+        });
+
+        angular.element("#type-autocomplete .coral-Textfield").on('input',function(){
+            var new_value = $(this).val();
+
+            $scope.$apply(function(){
+                $scope.pipes.node_type = new_value;
+            });
+        });
+
+        angular.element("#type-autocomplete").change(function() {
+            var new_value = $(this).find(".coral-Textfield").val();
+
+            $scope.$apply(function() {
+                $scope.pipes.node_type = new_value;
+            });
         });
 
         function getServletRequest(){
@@ -219,6 +235,7 @@ angular.module("CRUDEngineCtrl",[])
         }
     }]);
 
+/*
 $(function(){
     $(".node_type_dropdown").selectize({
         plugins: ['typing_mode'],
@@ -226,3 +243,4 @@ $(function(){
         sortField: 'text'
     });
 });
+*/
