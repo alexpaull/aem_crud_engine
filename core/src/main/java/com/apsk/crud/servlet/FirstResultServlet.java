@@ -19,15 +19,17 @@ import java.io.PrintWriter;
 )
 public class FirstResultServlet extends SlingSafeMethodsServlet {
 
+    private static final String PATH = "path";
+
     // returns path list for xpath query results
     @Override
     protected final void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws
             ServletException, IOException {
 
-        try{
 
+        try{
             ResourceResolver resolver = request.getResource().getResourceResolver();
-            Resource resource = resolver.getResource(request.getParameter("path"));
+            Resource resource = resolver.getResource(request.getParameter(PATH));
 
             ValueMap properties = resource.adaptTo(ValueMap.class);
             String json = new Gson().toJson(properties);

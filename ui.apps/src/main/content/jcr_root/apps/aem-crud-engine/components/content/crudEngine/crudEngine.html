@@ -23,12 +23,15 @@
 
                     <div class="xpath-ui" data-ng-show="pipes.query_type == 'xpath'" data-ng-cloak>
                         <h4>Xpath <small>Enter xpath query for input.</small></h4>
-                        <textarea is="coral-textarea" data-ng-bind="pipes.xpath_query" ></textarea>
+                        <textarea is="coral-textarea" data-ng-model="pipes.xpath_query"></textarea>
                     </div>
 
                     <div class="querybuilder-ui" data-ng-show="pipes.query_type == 'querybuilder'" data-ng-cloak>
                         <h4>Query Builder <small>Enter Query Builder string for input.</small></h4>
-                        <textarea is="coral-textarea" data-ng-bind="pipes.querybuilder_query" ></textarea>
+                        <textarea is="coral-textarea" data-ng-model="pipes.querybuilder_query"></textarea>
+                        <!-- <button is="coral-button" data-ng-click="generateQueryBuilder()" icon="dataRefresh">
+                            <coral-button-label>Generate Xpath</coral-button-label>
+                        </button> -->
                     </div>
 
                     <div class="advanced-ui" data-ng-show="pipes.query_type == 'advanced'" data-ng-cloak>

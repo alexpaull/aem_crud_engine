@@ -145,6 +145,7 @@ public class CRUDService {
 
                 pipeBuilder.run();
 
+
             } catch (Exception e) {
             }
         }
@@ -198,10 +199,5 @@ public class CRUDService {
         }
 
         return paths;
-    }
-
-    public String getXpathFromQueryBuilder(SlingHttpServletRequest request, String querybuilder){
-
-        return "";
     }
 }

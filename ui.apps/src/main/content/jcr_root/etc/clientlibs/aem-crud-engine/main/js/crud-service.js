@@ -29,3 +29,13 @@ crudEngine.firstResult = function(path, callback){
         }
     });
 };
+
+crudEngine.getXpathFromQueryBuilder = function(querybuilder, callback){
+    $.ajax({
+        method: "GET",
+        url: "/services/crud-engine/xpath-from-querybuilder.json?query=" + querybuilder,
+        complete: function(response){
+            callback(response);
+        }
+    });
+};
