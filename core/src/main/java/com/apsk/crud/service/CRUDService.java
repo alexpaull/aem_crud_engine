@@ -123,7 +123,11 @@ public class CRUDService {
                 } else if (action.equals(WRITE)){
                     pipeBuilder.write(action_property,write);
                 } else if (action.equals(REPLACE)) {
-                    pipeBuilder.write(action_property, "${item." + action_property + ".replace('" + find + "','" + replace + "')}");
+                    if (action_property.contains(":")){
+                        pipeBuilder.write(action_property, "${item[" + action_property + "].replace('" + find + "','" + replace + "')}");
+                    } else {
+                        pipeBuilder.write(action_property, "${item." + action_property + ".replace('" + find + "','" + replace + "')}");
+                    }
                 } else if (action.equals(CONDITION)) {
                     String ternary = condition + " " + condition_operation + " '" + condition_value + "' ? '" + expr1 + "' : '" + expr2 + "'";
                     pipeBuilder.write(action_property, "${(" + ternary + ")}");
