@@ -8,7 +8,7 @@ import org.apache.jackrabbit.vault.packaging.Packaging;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
-import com.apsk.pipes.Plumber;
+import org.apache.sling.pipes.Plumber;
 
 import javax.servlet.ServletException;
 import java.io.IOException;

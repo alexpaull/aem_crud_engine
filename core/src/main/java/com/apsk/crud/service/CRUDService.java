@@ -5,9 +5,6 @@ import com.adobe.acs.commons.packaging.PackageHelper;
 import org.apache.jackrabbit.vault.fs.api.ProgressTrackerListener;
 import org.apache.jackrabbit.vault.util.DefaultProgressListener;
 
-//import com.day.jcr.vault.fs.api.ProgressTrackerListener;
-//import com.day.jcr.vault.fs.config.DefaultWorkspaceFilter;
-
 import org.apache.jackrabbit.vault.packaging.Packaging;
 import org.apache.jackrabbit.vault.packaging.JcrPackage;
 import org.apache.jackrabbit.vault.packaging.JcrPackageManager;
@@ -15,10 +12,9 @@ import org.apache.jackrabbit.vault.packaging.JcrPackageManager;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
-//import org.apache.sling.pipes.PipeBuilder;
-import com.apsk.pipes.PipeBuilder;
-//import org.apache.sling.pipes.Plumber;
-import com.apsk.pipes.Plumber;
+import org.apache.sling.pipes.PipeBuilder;
+import org.apache.sling.pipes.Plumber;
+
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
@@ -142,6 +138,9 @@ public class CRUDService {
                 } else if (action.equals("copyNode")) {
 
                 }
+
+                //pipeBuilder.pipe("slingPipes/write").conf("temp","other","random","temp");
+                //pipeBuilder.write("1","2","3","4");
 
                 pipeBuilder.run();
 

@@ -194,12 +194,6 @@
                 <version>2.3</version>
                 <scope>compile</scope>
             </dependency>
-            <dependency>
-                <groupId>com.apsk.pipes</groupId>
-                <artifactId>pipes</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
-                <scope>provided</scope>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 

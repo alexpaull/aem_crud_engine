@@ -109,8 +109,6 @@ angular.module("CRUDEngineCtrl",[])
             var encodedQueryBuilder = encodeURIComponent($scope.pipes.querybuilder_query);
 
             crudEngine.getXpathFromQueryBuilder(encodedQueryBuilder, function(response){
-                console.log(response);
-                console.log(response.responseText);
                 $scope.pipes.query = response.responseText;
                 $scope.$apply();
             });
