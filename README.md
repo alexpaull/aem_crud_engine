@@ -84,7 +84,14 @@ Maven Includes Used: https://mvnrepository.com
 
  **Write Property**
  
- ```plumber.newPipe(resolver).xpath("/jcr:root/etc/testpath//*").write("test","test");```
+ ```
+ plumber.newPipe(resolver).xpath("/jcr:root/etc/testpath//*").write("test","test");
+ 
+ // creates props "1=2" and "3=4"
+ pipeBuilder.write("1","2","3","4");
+ 
+ pipeBuilder.pipe("slingPipes/write").conf("temp","other","random","temp");
+ ```
 
  **Conditional**
  
@@ -98,6 +105,9 @@ Maven Includes Used: https://mvnrepository.com
  ```
  pipeBuilder.xpath("/jcr:root/etc/testpath//*").name("item")
     .write("testProp","${item.testProp.replace('0','new')}");
+   
+ pipeBuilder.xpath("/jcr:root/etc/testpath//*").name("item").write("test", "${item['sling:resourceType'].replace('sling','that')}");
+  
  ```
 
  **test break down chain commands**

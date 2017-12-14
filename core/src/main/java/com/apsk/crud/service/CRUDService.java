@@ -4,7 +4,6 @@ import com.adobe.acs.commons.packaging.PackageHelper;
 
 import org.apache.jackrabbit.vault.fs.api.ProgressTrackerListener;
 import org.apache.jackrabbit.vault.util.DefaultProgressListener;
-
 import org.apache.jackrabbit.vault.packaging.Packaging;
 import org.apache.jackrabbit.vault.packaging.JcrPackage;
 import org.apache.jackrabbit.vault.packaging.JcrPackageManager;
@@ -14,7 +13,6 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.pipes.PipeBuilder;
 import org.apache.sling.pipes.Plumber;
-
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
@@ -74,12 +72,10 @@ public class CRUDService {
     }
 
     // prevents deploy from overwriting
-    public void runCRUD(SlingHttpServletRequest request, Plumber plumber, Packaging packaging, PackageHelper packageHelper){
+    public String runCRUD(SlingHttpServletRequest request, Plumber plumber, Packaging packaging, PackageHelper packageHelper){
 
         ResourceResolver resolver = request.getResourceResolver();
 
-        String getPackage = request.getParameter(PACKAGE);
-        String package_name = request.getParameter(PACKAGE_NAME);
         String parent = request.getParameter(PARENT);
         String xpath = request.getParameter(XPATH);
         String action = request.getParameter(ACTION);
@@ -88,20 +84,33 @@ public class CRUDService {
         String replace = request.getParameter(REPLACE);
         String write = request.getParameter(WRITE);
         String folder = request.getParameter(FOLDER);
-        String path = request.getParameter(PATH);
         String condition = request.getParameter(CONDITION);
         String condition_operation = request.getParameter(CONDITION_OPERATION);
         String condition_value = request.getParameter(CONDITION_VALUE);
         String expr1 = request.getParameter(EXPR1);
         String expr2 = request.getParameter(EXPR2);
 
-        if (getPackage != null){
-            createPackage(resolver, path, packaging, packageHelper, package_name);
-        }
+        Session session = request.getResourceResolver().adaptTo(Session.class);
 
-        if (xpath != null) {
+        Boolean pass = false;
 
+        // test if xpath is too generic or null
+
+        if (xpath != "/jcr:root" && xpath != "/jcr:root/*" && xpath != "/jcr:root//*"){
+            return "generic";
+        } else if (xpath != null && xpath != "") {
             try {
+
+                // see if query has results before running pipes
+                QueryManager queryManager = session.getWorkspace().getQueryManager();
+                Query query = queryManager.createQuery(xpath, Query.XPATH);
+                QueryResult queryResult = query.execute();
+
+                pass = (queryResult.getNodes().getSize() > 0) ? true : false;
+
+                if (!pass){
+                    return "empty";
+                }
 
                 // test break down chain commands
                 PipeBuilder pipeBuilder = plumber.newPipe(resolver);
@@ -139,24 +148,34 @@ public class CRUDService {
 
                 }
 
-                //pipeBuilder.write("sling:resourceType", "there/here");
-                //pipeBuilder.write("test", "${item['sling:resourceType'].replace('sling','that')}");
-                //pipeBuilder.write("test2", "${item.test.replace('sling','that')}");
-
-                //pipeBuilder.pipe("slingPipes/write").conf("temp","other","random","temp");
-                //pipeBuilder.write("1","2","3","4");
-
                 pipeBuilder.run();
 
-
             } catch (Exception e) {
+                e.printStackTrace();
+                return "error";
             }
+            return "success";
+        } else {
+            return "empty";
         }
     }
 
-    private void createPackage(ResourceResolver resolver, String path, Packaging packaging, PackageHelper packageHelper, String package_name){
+    public String createPackage(SlingHttpServletRequest request, Packaging packaging, PackageHelper packageHelper){
 
-        // get session from request
+        // get parameters
+        String getPackage = request.getParameter(PACKAGE);
+        String package_name = request.getParameter(PACKAGE_NAME);
+        String path = request.getParameter(PATH);
+
+        // get resolver from request
+        ResourceResolver resolver = request.getResourceResolver();
+
+        // check if package is requested from user
+        if (getPackage == null){
+            return "none";
+        }
+
+        // get session from resolver
         Session session = resolver.adaptTo(Session.class);
 
         // create path collection for package method
@@ -177,8 +196,10 @@ public class CRUDService {
 
             jcrPackageManager.assemble(jcrPackage,listener);
 
+            return "success";
         } catch (Exception e){
             e.printStackTrace();
+            return "error";
         }
     }
 
