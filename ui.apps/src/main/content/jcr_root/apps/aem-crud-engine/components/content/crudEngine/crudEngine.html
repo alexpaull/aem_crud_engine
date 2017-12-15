@@ -1,6 +1,6 @@
 <sly data-sly-use.crudEngine="com.apsk.crud.component.CRUDEngine">
     <div class="crud-engine container-fluid" data-ng-controller="crudEngineCtrl" data-ng-cloak>
-        <h2 class="crud-header">AEM JCR CRUD Engine<br><small>Create.Read.Update.Delete.</small></h2>
+        <h2 class="crud-header">AEM JCR C.R.U.D. Engine</h2>
         <div class="pipe_form">
             <div class="target row">
                 <div class="target_build col-md-6">
@@ -43,6 +43,7 @@
                             <h4>Path <small>Location for query to search</small></h4>
                             <div class="inline-block">
                                 <input is="coral-textfield" id="path" type="text" autocomplete="off" data-ng-init="initTreeLoader()" data-ng-model="pipes.path"  value="/"/>
+                                <button is="coral-button" icon="search" iconsize="S" data-ng-click="treeSearch()"></button>
                             </div>
                             <coral-buttongroup selectionmode="single" name="button-group" labelledby="labelledBy">
                                 <button is="coral-button" data-ng-click="pipes.path_operation = 'exact'">

@@ -48,6 +48,10 @@ angular.module("CRUDEngineCtrl",[])
             });
         };
 
+        $scope.treeSearch = function(){
+            angular.element(".crud-engine .x-form-trigger.x-form-search-trigger").click();
+        };
+
         $scope.$watchGroup([
             'pipes.path',
             'pipes.path_operation',
