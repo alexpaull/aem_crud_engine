@@ -70,6 +70,7 @@ angular.module("CRUDEngineCtrl",[])
         });
 
         $scope.$watchGroup([
+            'pipes.query',
             'pipes.action',
             'pipes.find',
             'pipes.replace',
@@ -80,11 +81,12 @@ angular.module("CRUDEngineCtrl",[])
             'pipes.condition_operation',
             'pipes.condition_value',
             'pipes.expr1',
-            'pipes.expr2'
+            'pipes.expr2',
+            'pipes.parent'
         ], function(){
             updateOutputFromPipes();
         });
-
+        
         angular.element("#type-autocomplete .coral-Textfield").on('input',function(){
             var new_value = $(this).val();
 
@@ -212,35 +214,31 @@ angular.module("CRUDEngineCtrl",[])
         }
 
         function updateOutputFromPipes(){
-            var outputParam = "";
-
-            if ($scope.pipes.action){
-                if ($scope.pipes.action == 'delete' || $scope.pipes.action == 'none'){
-                    outputParam += "action=" + $scope.pipes.action;
-                } else {
-                    outputParam += "action=" + $scope.pipes.action + "&";
-                }
-
-                if ($scope.pipes.action == 'replace'){
-                    outputParam += "action_property=" + $scope.pipes.action_property + "&";
-                    outputParam += "find=" + $scope.pipes.find + "&";
-                    outputParam += "replace=" + $scope.pipes.replace;
-                } else if ($scope.pipes.action == 'write') {
-                    outputParam += "action_property=" + $scope.pipes.action_property + "&";
-                    outputParam += "write=" + $scope.pipes.write;
-                } else if ($scope.pipes.action == 'conditional'){
-                    outputParam += "action_property=" + $scope.pipes.action_property + "&";
-                    outputParam += "condition=" + $scope.pipes.condition;
-                    outputParam += "condition_operation=" + $scope.pipes.condition_opetation;
-                    outputParam += "condition_value=" + $scope.pipes.condition_value;
-                    outputParam += "expr1=" + $scope.pipes.expr1;
-                    outputParam += "expr2=" + $scope.pipes.expr2;
-                } else if ($scope.pipes.action == 'mkdir'){
-                    outputParam += "folder=" + $scope.pipes.folder;
-                }
+            var newLine = "%0A";
+            var outputParam = "PipeBuilder pipeBuilder = plumber.newPipe(resolver);" + newLine
+                + "pipeBuilder.xpath(\"" + $scope.pipes.query + "\");" + newLine;
+            
+            if ($scope.pipes.parent){
+                outputParam += "pipeBuilder.parent();" + newLine;
             }
 
-            $scope.pipes.output = outputParam;
+            if ($scope.pipes.action){
+                if ($scope.pipes.action == 'delete'){
+                    outputParam += "pipeBuilder.rm();" + newLine;
+                } else if ($scope.pipes.action == 'replace'){
+                    outputParam += "pipeBuilder.write(\"" + $scope.pipes.action_property + "\", \"${item['" + $scope.pipes.action_property + "'].replace('" + $scope.pipes.find + "','" + $scope.pipes.replace + "')}\");" + newLine;
+                } else if ($scope.pipes.action == 'write') {
+                    outputParam += "pipeBuilder.write(\"" + $scope.pipes.action_property + "\", \"" + $scope.pipes.write + "\");" + newLine;
+                } else if ($scope.pipes.action == 'conditional'){
+                    outputParam += "pipeBuilder.write(\"" + $scope.pipes.action_property+ "\", \"${(" + $scope.pipes.condition + " " + $scope.pipes.condition_operation + " '" + $scope.pipes.condition_value + "' ? '" + $scope.pipes.expr1 + "' : '" + $scope.pipes.expr2 + "')}\");" + newLine;
+                } else if ($scope.pipes.action == 'mkdir'){
+                    outputParam += "pipeBuilder.mkdir(\"" + $scope.pipes.folder + "\")" + newLine;
+                }
+            }
+            
+            outputParam += "pipeBuilder.run();";
+
+            $scope.pipes.output = decodeURIComponent(outputParam);
         }
     }]);
 

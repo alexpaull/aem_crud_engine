@@ -127,20 +127,13 @@
                     </div>
                 </div>
                 <div class="target_display form-group col-md-6" data-ng-cloak>
-                    <h3>Input <small>Generated Xpath Query</small></h3>
+                    <h3>Input <small>Generated xpath query</small></h3>
                     <textarea is="coral-textarea" data-ng-bind="pipes.query" readonly></textarea>
                     <br><br>
                     <button is="coral-button" icon="folderSearch" iconsize="M" data-ng-click="getXpathResults()">Show Results</button>
                     <div data-ng-show="pipes.first_props">
-                        <h3>Sample Result</h3>
-                        <h5>Path: <span data-ng-bind="pipes.first_path"></span></h5>
+                        <h4>Sample Result <small data-ng-bind="pipes.first_path"></small></h4>
                         <table is="coral-table">
-                            <thead is="coral-table-head">
-                                <tr is="coral-table-row">
-                                    <th is="coral-table-headercell">Property Name</th>
-                                    <th is="coral-table-headercell">Value</th>
-                                </tr>
-                            </thead>
                             <tbody is="coral-table-body" divider="cell">
                                 <tr is="coral-table-row" data-ng-repeat="(key, value) in pipes.first_props track by $index">
                                     <td is="coral-table-cell">{{key}}</td>
@@ -154,7 +147,7 @@
 
             <div class="action row">
                 <div class="action_build col-md-6" data-ng-cloak>
-                    <h3>Action</h3>
+                    <h3>Action <small>Perform action on results</small></h3>
                     <div>
                         <coral-buttongroup selectionmode="single" name="button-group" labelledby="labelledBy">
                             <button is="coral-button" data-ng-click="pipes.action = 'none'" title="None: No Action Selected">
@@ -246,8 +239,8 @@
                     </div>
                 </div>
                 <div class="action_display form-group col-md-6" data-ng-cloak>
-                    <h3>Output</h3>
-                    <textarea is="coral-textarea" data-ng-bind="pipes.output"  readonly></textarea>
+                    <h3>Output <small>Generated action on results</small></h3>
+                    <textarea is="coral-textarea" data-ng-bind="pipes.output" readonly></textarea>
                 </div>
             </div>
         </div>

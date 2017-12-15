@@ -1,18 +1,27 @@
-.crud-engine{
+.crud-engine {
 
-  h2{
+  h2 {
     padding: 0;
     text-align: center;
   }
 
-  .selectize-control{
+  .selectize-control {
     width: 300px;
   }
-  .node_value{
-    label{
-      margin-top:10px;
+  .node_value {
+    label {
+      margin-top: 10px;
       vertical-align: top;
     }
+  }
+
+  .coral-Tab.is-selected:focus {
+    color: inherit;
+    border-color: inherit;
+  }
+  .coral-Tab:focus {
+    text-decoration: inherit;
+    outline: inherit;
   }
 
   .pipe-path {
@@ -24,52 +33,55 @@
       display: inline-block;
       width: auto !important;
     }
-    .coral-Icon--search{
+    .coral-Icon--search {
       vertical-align: text-top;
     }
   }
 
-  .inline-block{
-    display:inline-block;
+  .inline-block {
+    display: inline-block;
   }
 
-  .path_operation, .property_operation{
-    margin-top:-5px;
+  .path_operation, .property_operation {
+    margin-top: -5px;
   }
 
-  .simple-ui, .advanced-ui, .xpath-ui, .querybuilder-ui{
-    background: rgba(200,200,200,.1);
+  .simple-ui, .advanced-ui, .xpath-ui, .querybuilder-ui {
+    background: rgba(200, 200, 200, .1);
     border: 1px solid lightgrey;
     border-top: none;
+    border-radius: 4px;
     padding: 10px;
   }
 
-  .pipe{
-    background: rgba(200,200,200,.1);
-    border: 1px dashed lightgrey;
+  .pipe {
+    background: rgba(200, 200, 200, .1);
+    border: 1px solid lightgrey;
+    border-top: none;
+    border-radius: 4px;
     padding: 10px;
   }
 
-  .target_display tbody{
+  .target_display tbody {
     max-height: 300px;
     overflow-y: scroll;
   }
 
-  textarea{
+  textarea {
     width: 350px;
     height: 200px;
 
-    &[readonly]{
+    &[readonly] {
       background: lightgrey;
       height: 66px;
     }
   }
 
-  .node_type input{
+  .node_type input {
     width: 250px;
   }
 
-  .coral-BasicList-item-contentContainer{
+  .coral-BasicList-item-contentContainer {
     width: 230px;
   }
 }
