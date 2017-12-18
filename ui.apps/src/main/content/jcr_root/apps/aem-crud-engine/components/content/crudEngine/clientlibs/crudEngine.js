@@ -23,10 +23,6 @@ angular.module("CRUDEngineCtrl",[])
         };
 
         $scope.getXpathResults = function(){
-
-            // clear any old overlays to prevent datatable issues
-            angular.element('.dynamic-message-overlay').remove();
-
             crudEngine.xpathQuery($scope.pipes.query, function(response){
                 if (response && response.responseText){
                     var query_result = JSON.parse(response.responseText);
@@ -37,9 +33,8 @@ angular.module("CRUDEngineCtrl",[])
 
                     $scope.pipes.first_path = query_result[0];
 
-                    //modalFactory.triggerModal("/etc/crud-engine/overlay.html", "overlayCtrl", $pass);
+                    // create modal and display
                     createDialog(query_result);
-
 
                     crudEngine.firstResult(query_result[0], function(response){
                         if (response.responseText) {
@@ -52,19 +47,17 @@ angular.module("CRUDEngineCtrl",[])
 
         function createDialog(results){
 
+            // create HTML for modal
             var innerHTML = '<table id="input_results" class="table table-striped table-bordered" cellspacing="0" width="100%">' +
-                '<thead><tr><th>Path</th></tr></thead>';
-
-            innerHTML += '<tbody>';
-
+                '<thead><tr><th>Path</th></tr></thead><tbody>';
             for (var result in results){
                 if (result != 'remove') {
                     innerHTML += '<tr><td><a target="_blank" href="http://localhost:4502/crx/de/index.jsp#' + results[result] + '">' + results[result] + '</a></td></tr>';
                 }
             }
-
             innerHTML += '</tbody></table>';
 
+            // create modal element
             var dialog = new Coral.Dialog().set({
                 id: 'myDialog',
                 header: {
@@ -78,11 +71,19 @@ angular.module("CRUDEngineCtrl",[])
                 }
             });
 
+            // attach modal element to body
             document.body.appendChild(dialog);
 
+            // trigger datatable functionality on table
             angular.element("#input_results").DataTable();
 
+            // show modal
             dialog.show();
+
+            // function to remove element on close button
+            dialog.on('coral-overlay:close', function(event) {
+                dialog.remove();
+            });
         }
 
         $scope.treeSearch = function(){
