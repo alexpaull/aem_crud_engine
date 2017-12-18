@@ -14,7 +14,39 @@ angular.module("CRUDEngineCtrl",[])
         $scope.pipes.query_type = 'simple';
 
         $scope.run = function(){
-            crudEngine.runQuery(getServletRequest());
+            crudEngine.runQuery(getServletRequest(), function(response){
+                var responseObj = JSON.parse(response.responseText);
+
+                var header = "";
+                var message = "";
+
+
+                // package: success, error, none
+                if (responseObj.package != "error"){
+                    if (responseObj.package == "success") {
+                        message += "Package created successfully.\n";
+                    }
+                    // crud: success, generic, error, empty
+                    if (responseObj.crud == "success"){
+                        header = "SUCCESS";
+                        message += "CRUD operation completed.";
+                    } else if (responseObj.crud == "generic"){
+                        header = "WARNING";
+                        message += "Xpath query too generic, can not specify root node /jcr:root.";
+                    } else if (responseObj.crud == "empty"){
+                        header = "WARNING";
+                        message += "Xpath query empty, can not find results.";
+                    } else if (responseObj.crud == "error"){
+                        header = "ERROR";
+                        message += "There was an issue with the CRUD operation.";
+                    }
+                } else if (responseObj.package == "error"){
+                    header = "ERROR";
+                    message += "Package resulted in error, CRUD operation not attempted";
+                }
+
+                createAlert(header, message, header.toLowerCase());
+            });
         };
 
         // run to initialize content finder for path
@@ -59,7 +91,7 @@ angular.module("CRUDEngineCtrl",[])
 
             // create modal element
             var dialog = new Coral.Dialog().set({
-                id: 'myDialog',
+                id: 'resultsDialog',
                 header: {
                     innerHTML: 'Query Results: ' + $scope.pipes.query
                 },
@@ -84,6 +116,34 @@ angular.module("CRUDEngineCtrl",[])
             dialog.on('coral-overlay:close', function(event) {
                 dialog.remove();
             });
+        }
+
+        function createAlert(header, content, variant){
+
+            function closeAlert(){
+               angular.element("coral-alert").remove();
+            }
+
+            //
+            closeAlert();
+
+            var closeButton = '<div style="text-align:right">' +
+                '<button is="coral-button" variant="minimal" coral-close onclick="closeAlert()">Close</button>' +
+                '</div>';
+
+            // create alert element
+            var alert = new Coral.Alert().set({
+                id:"queryAlert",
+                header: {
+                    innerHTML: header
+                },
+                content:{
+                    innerHTML: content + closeButton,
+                },
+                variant: variant,
+                size: "S"
+            });
+            angular.element('body').prepend(alert);
         }
 
         $scope.treeSearch = function(){

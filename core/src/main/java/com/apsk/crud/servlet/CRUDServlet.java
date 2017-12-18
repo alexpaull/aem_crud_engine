@@ -43,7 +43,7 @@ public class CRUDServlet extends SlingSafeMethodsServlet {
         CRUDService crudService = new CRUDService();
 
         String packageResponse = crudService.createPackage(request, packaging, packageHelper);
-        String crudResponse = crudService.runCRUD(request, plumber, packaging, packageHelper);
+        String crudResponse = (packageResponse == "error") ? "error" : crudService.runCRUD(request, plumber, packaging, packageHelper);
 
         Map<String, String> map = new HashMap<String,String>();
         map.put("package",packageResponse);

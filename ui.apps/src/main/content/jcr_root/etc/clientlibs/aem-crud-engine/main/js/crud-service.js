@@ -1,11 +1,9 @@
-crudEngine.runQuery = function(request){
+crudEngine.runQuery = function(request, callback){
     $.ajax({
         method: "GET",
         url: "/services/crud-engine/run-crud.json" + request,
         complete: function(response){
-            if (response.status == 302){
-                location.reload();
-            }
+            callback(response);
         }
     });
 };
