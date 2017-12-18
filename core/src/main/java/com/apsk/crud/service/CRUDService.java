@@ -96,7 +96,7 @@ public class CRUDService {
 
         // test if xpath is too generic or null
 
-        if (xpath != "/jcr:root" && xpath != "/jcr:root/*" && xpath != "/jcr:root//*"){
+        if (xpath == "/jcr:root" || xpath == "/jcr:root/*" || xpath == "/jcr:root//*"){
             return "generic";
         } else if (xpath != null && xpath != "") {
             try {

@@ -50,7 +50,6 @@ module.factory('ModalService', ['$animate', '$document', '$compile', '$controlle
                     self.openModals.splice(0, 1);
                 }
             };
-
             self.showModal = function(options) {
 
                 //  Get the body of the document, we'll add the modal to this.

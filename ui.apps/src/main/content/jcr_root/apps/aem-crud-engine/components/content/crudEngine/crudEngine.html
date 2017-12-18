@@ -7,16 +7,16 @@
                     <h3>Search <small>Create query for input</small></h3>
 
                     <coral-tablist target="" data-ng-cloak>
-                        <coral-tab data-ng-click="pipes.query_type = 'simple'">
+                        <coral-tab data-ng-click="pipes.query_type = 'simple'" title="Simple UI: Use GUI to create xpath query for input">
                             Simple UI
                         </coral-tab>
                         <!-- <coral-tab data-ng-click="pipes.query_type = 'advanced'">
                             Advanced UI
                         </coral-tab> -->
-                        <coral-tab data-ng-click="pipes.query_type = 'xpath'">
+                        <coral-tab data-ng-click="pipes.query_type = 'xpath'" title="Xpath: Write specific xpath query for input">
                             Xpath
                         </coral-tab>
-                        <coral-tab data-ng-click="pipes.query_type = 'querybuilder'">
+                        <coral-tab data-ng-click="pipes.query_type = 'querybuilder'" title="Query Builder: Write specific query builder for input">
                             Query Builder
                         </coral-tab>
                     </coral-tablist>
@@ -46,13 +46,13 @@
                                 <button is="coral-button" icon="search" iconsize="S" data-ng-click="treeSearch()"></button>
                             </div>
                             <coral-buttongroup selectionmode="single" name="button-group" labelledby="labelledBy">
-                                <button is="coral-button" data-ng-click="pipes.path_operation = 'exact'">
+                                <button is="coral-button" data-ng-click="pipes.path_operation = 'exact'" title="Exact: Match the exact path">
                                     <coral-button-label>Exact</coral-button-label>
                                 </button>
-                                <button is="coral-button" data-ng-click="pipes.path_operation = 'children'">
+                                <button is="coral-button" data-ng-click="pipes.path_operation = 'children'" title="Children: Match the children of the path">
                                     <coral-button-label>Children</coral-button-label>
                                 </button>
-                                <button is="coral-button" data-ng-click="pipes.path_operation = 'recursive'" selected>
+                                <button is="coral-button" data-ng-click="pipes.path_operation = 'recursive'" title="Recursive: Match every node under the path" selected>
                                     <coral-button-label>Recursive</coral-button-label>
                                 </button>
                             </coral-buttongroup>
@@ -60,23 +60,23 @@
                         <div class="pipe-node form-group" data-ng-hide="pipes.path_operation == 'exact'">
                             <h4>Node Filters <small>Limit results to match Node</small></h4>
                             <coral-buttongroup selectionmode="single" name="button-group" labelledby="labelledBy">
-                                <button is="coral-button" data-ng-click="pipes.node_operation = 'none'">
+                                <button is="coral-button" data-ng-click="pipes.node_operation = 'none'" title="None: Matches to all nodes">
                                     <coral-button-label>None</coral-button-label>
                                 </button>
-                                <button is="coral-button" data-ng-click="pipes.node_operation = 'name'">
+                                <button is="coral-button" data-ng-click="pipes.node_operation = 'name'" title="Name: Matches to specified name">
                                     <coral-button-label>Name</coral-button-label>
                                 </button>
-                                <button is="coral-button" data-ng-click="pipes.node_operation = 'type'">
+                                <button is="coral-button" data-ng-click="pipes.node_operation = 'type'" title="Type: Matches to specified Type">
                                     <coral-button-label>Type</coral-button-label>
                                 </button>
-                                <button is="coral-button" data-ng-click="pipes.node_operation = 'nametype'">
+                                <button is="coral-button" data-ng-click="pipes.node_operation = 'nametype'" title="Name and Type: Matches to specified name and type">
                                     <coral-button-label>Name and Type</coral-button-label>
                                 </button>
                             </coral-buttongroup>
                             <div class="pipe form-group node_value" data-ng-hide="pipes.node_operation == 'none'">
                                 <label class="node_name" data-ng-hide="pipes.node_operation == 'type'">
                                     <h5>Name <small>* matches all</small></h5>
-                                    <input is="coral-textfield" type="text" data-ng-model="pipes.node" />
+                                    <input is="coral-textfield" type="text" data-ng-model="pipes.node" placeholder="*" />
                                 </label>
                                 <label class="node_type" data-ng-hide="pipes.node_operation == 'name'">
                                     <h5>Type</h5>
@@ -91,19 +91,19 @@
                         <div class="pipe-property form-group">
                             <h4>Property Filters <small>Limit results to match Property</small></h4>
                             <coral-buttongroup selectionmode="single" name="button-group" labelledby="labelledBy">
-                                <button is="coral-button" data-ng-click="pipes.property_operation = 'none'">
+                                <button is="coral-button" data-ng-click="pipes.property_operation = 'none'" title="None: No property filter">
                                     <coral-button-label>None</coral-button-label>
                                 </button>
-                                <button is="coral-button" data-ng-click="pipes.property_operation = 'exists'">
+                                <button is="coral-button" data-ng-click="pipes.property_operation = 'exists'" title="Exists: Matches if result has specified property">
                                     <coral-button-label>Exists</coral-button-label>
                                 </button>
-                                <button is="coral-button" data-ng-click="pipes.property_operation = 'equals'">
+                                <button is="coral-button" data-ng-click="pipes.property_operation = 'equals'" title="Equals: Matches if result's specified property is equal to value">
                                     <coral-button-label>Equals</coral-button-label>
                                 </button>
-                                <button is="coral-button" data-ng-click="pipes.property_operation = 'unequals'">
+                                <button is="coral-button" data-ng-click="pipes.property_operation = 'unequals'" title="Unequals: Matches if result's specified property is not equal to value">
                                     <coral-button-label>Unequals</coral-button-label>
                                 </button>
-                                <button is="coral-button" data-ng-click="pipes.property_operation = 'contains'">
+                                <button is="coral-button" data-ng-click="pipes.property_operation = 'contains'" title="Contains: matches if results's specified property contains value">
                                     <coral-button-label>Contains</coral-button-label>
                                 </button>
                             </coral-buttongroup>
@@ -240,7 +240,7 @@
                 </div>
                 <div class="action_display form-group col-md-6" data-ng-cloak>
                     <h3>Output <small>Generated action on results</small></h3>
-                    <textarea is="coral-textarea" data-ng-bind="pipes.output" readonly></textarea>
+                    <textarea is="coral-textarea" data-ng-bind="pipes.java" readonly></textarea>
                 </div>
             </div>
         </div>
@@ -248,7 +248,7 @@
             <div class="coral-Checkbox">
                 <input type="checkbox" handle="input" data-ng-model="pipes.parent" class="coral-Checkbox-input" id="coral-id-4">
                 <span class="coral-Checkbox-checkmark" handle="checkbox"></span>
-                <label class=" coral-Checkbox-description" handle="labelWrapper" for="coral-id-4">
+                <label class="coral-Checkbox-description" handle="labelWrapper" for="coral-id-4">
                     <coral-icon icon="branch3" size="M"></coral-icon>
                     <coral-checkbox-label>Perform Action on Only Parents of Results</coral-checkbox-label>
                 </label>

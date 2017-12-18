@@ -2,10 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83e453df-71a3-406f-b64d-99caba9aac04" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/apsk/crud/service/CRUDService.java" afterPath="$PROJECT_DIR$/core/src/main/java/com/apsk/crud/service/CRUDService.java" />
       <change beforePath="$PROJECT_DIR$/todo.md" afterPath="$PROJECT_DIR$/todo.md" />
       <change beforePath="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/content/crudEngine/clientlibs/crudEngine.js" afterPath="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/content/crudEngine/clientlibs/crudEngine.js" />
       <change beforePath="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/content/crudEngine/clientlibs/crudEngine.less" afterPath="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/content/crudEngine/clientlibs/crudEngine.less" />
       <change beforePath="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/content/crudEngine/crudEngine.html" afterPath="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/content/crudEngine/crudEngine.html" />
+      <change beforePath="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/content/dynamicOverlay/.content.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/content/dynamicOverlay/clientlibs/.content.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/content/dynamicOverlay/clientlibs/css.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/content/dynamicOverlay/clientlibs/dynamicOverlay.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/content/dynamicOverlay/clientlibs/dynamicOverlay.less" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/content/dynamicOverlay/clientlibs/js.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/content/dynamicOverlay/dynamicOverlay.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/etc/clientlibs/aem-crud-engine/main/js/angular/modules/CRUDEngineModule.js" afterPath="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/etc/clientlibs/aem-crud-engine/main/js/angular/modules/CRUDEngineModule.js" />
+      <change beforePath="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/etc/clientlibs/aem-crud-engine/main/js/angular/services/ModalService.js" afterPath="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/etc/clientlibs/aem-crud-engine/main/js/angular/services/ModalService.js" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/core/target/" />
@@ -19,21 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CRUDService.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/core/src/main/java/com/apsk/crud/service/CRUDService.java">
+      <file leaf-file-name="crudEngine.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/content/crudEngine/crudEngine.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
-              <caret line="128" column="31" lean-forward="true" selection-start-line="128" selection-start-column="31" selection-end-line="128" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="XPathFromQueryBuilder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/main/java/com/apsk/crud/servlet/XPathFromQueryBuilder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
-              <caret line="49" column="55" lean-forward="true" selection-start-line="49" selection-start-column="55" selection-end-line="49" selection-end-column="55" />
+            <state relative-caret-position="542">
+              <caret line="244" column="18" lean-forward="false" selection-start-line="244" selection-start-column="18" selection-end-line="244" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -42,39 +43,19 @@
       <file leaf-file-name="crudEngine.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/content/crudEngine/clientlibs/crudEngine.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="50" column="31" lean-forward="false" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="31" />
+            <state relative-caret-position="510">
+              <caret line="34" column="51" lean-forward="true" selection-start-line="34" selection-start-column="51" selection-end-line="34" selection-end-column="51" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="crudEngine.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/content/crudEngine/crudEngine.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="242" column="78" lean-forward="false" selection-start-line="242" selection-start-column="78" selection-end-line="242" selection-end-column="78" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="crudEngine.less" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/content/crudEngine/clientlibs/crudEngine.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="24" column="3" lean-forward="false" selection-start-line="24" selection-start-column="3" selection-end-line="24" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="todo.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="todo.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/todo.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="135">
-                <caret line="9" column="14" lean-forward="false" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+              <first_editor relative-caret-position="90">
+                <caret line="6" column="11" lean-forward="true" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -82,31 +63,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.less" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/etc/clientlibs/aem-crud-engine/main/css/main.less">
+      <file leaf-file-name="crudEngine.less" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/content/crudEngine/clientlibs/crudEngine.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="1" lean-forward="false" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+            <state relative-caret-position="375">
+              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".content.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/etc/clientlibs/aem-crud-engine/libs/css/bootstrap/.content.xml">
+      <file leaf-file-name="CRUDEngineModule.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/etc/clientlibs/aem-crud-engine/main/js/angular/modules/CRUDEngineModule.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
-              <caret line="3" column="44" lean-forward="false" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
-              <folding />
+              <caret line="3" column="3" lean-forward="true" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".content.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/etc/clientlibs/aem-crud-engine/libs/js/bootstrap/.content.xml">
+      <file leaf-file-name="CRUDEngine.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/main/java/com/apsk/crud/component/CRUDEngine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="32" lean-forward="false" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
+            <state relative-caret-position="60">
+              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -124,8 +107,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>newPipe</find>
-      <find>PipeBindings</find>
       <find>contains</find>
       <find>NopWriter</find>
       <find>internal</find>
@@ -153,7 +134,9 @@
       <find>acs</find>
       <find>felix</find>
       <find>replace</find>
+      <find>generic</find>
       <find>sample</find>
+      <find>querymanager</find>
     </findStrings>
     <replaceStrings>
       <replace>crudEngine</replace>
@@ -171,7 +154,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/page/crud-engine/clientlibs/crud-engine.less" />
         <option value="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/page/crud-engine/clientlibs/css.txt" />
         <option value="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/page/crud-engine/clientlibs/.content.xml" />
         <option value="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/page/crud-engine/.content.xml" />
@@ -188,7 +170,6 @@
         <option value="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/etc/clientlibs/aem-crud-engine/libs/js/selectize/.content.xml" />
         <option value="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/etc/clientlibs/aem-crud-engine/libs/css/selectize/.content.xml" />
         <option value="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/etc/clientlibs/aem-crud-engine/main/js/js.txt" />
-        <option value="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/etc/clientlibs/aem-crud-engine/main/js/angular/modules/CRUDEngineModule.js" />
         <option value="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/etc/clientlibs/aem-crud-engine/main/js/crud-engine.js" />
         <option value="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/page/base/body.html" />
         <option value="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/page/base/head.html" />
@@ -208,7 +189,6 @@
         <option value="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/etc/clientlibs/aem-crud-engine/libs/css/bootstrap/.content.xml" />
         <option value="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/content/dynamicOverlay/dynamicOverlay.html" />
         <option value="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/content/dynamicOverlay/clientlibs/dynamicOverlay.less" />
-        <option value="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/etc/clientlibs/aem-crud-engine/main/js/widget-service.js" />
         <option value="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/etc/clientlibs/aem-crud-engine/main/js/crud-service.js" />
         <option value="$PROJECT_DIR$/core/src/main/java/com/apsk/crud/servlet/XPathFromQueryBuilder.java" />
         <option value="$PROJECT_DIR$/core/src/main/java/com/apsk/crud/servlet/FirstResultServlet.java" />
@@ -218,10 +198,13 @@
         <option value="$PROJECT_DIR$/core/src/main/java/com/apsk/crud/servlet/CRUDServlet.java" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/core/src/main/java/com/apsk/crud/service/CRUDService.java" />
-        <option value="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/content/crudEngine/clientlibs/crudEngine.js" />
-        <option value="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/content/crudEngine/clientlibs/crudEngine.less" />
-        <option value="$PROJECT_DIR$/todo.md" />
+        <option value="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/etc/clientlibs/aem-crud-engine/main/js/widget-service.js" />
         <option value="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/content/crudEngine/crudEngine.html" />
+        <option value="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/content/crudEngine/clientlibs/crudEngine.less" />
+        <option value="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/etc/clientlibs/aem-crud-engine/main/js/angular/services/ModalService.js" />
+        <option value="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/etc/clientlibs/aem-crud-engine/main/js/angular/modules/CRUDEngineModule.js" />
+        <option value="$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/content/crudEngine/clientlibs/crudEngine.js" />
+        <option value="$PROJECT_DIR$/todo.md" />
       </list>
     </option>
   </component>
@@ -239,9 +222,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="23" />
-    <option name="width" value="1440" />
-    <option name="height" value="877" />
+    <option name="x" value="-282" />
+    <option name="y" value="-1057" />
+    <option name="width" value="1920" />
+    <option name="height" value="1057" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -322,42 +306,6 @@
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="apsk" type="462c0819:PsiDirectoryNode" />
               <item name="crud" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="aem-crud-engine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="aem_crud_engine" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="apsk" type="462c0819:PsiDirectoryNode" />
-              <item name="crud" type="462c0819:PsiDirectoryNode" />
-              <item name="component" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="aem-crud-engine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="aem_crud_engine" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="apsk" type="462c0819:PsiDirectoryNode" />
-              <item name="crud" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="aem-crud-engine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="aem_crud_engine" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="apsk" type="462c0819:PsiDirectoryNode" />
-              <item name="crud" type="462c0819:PsiDirectoryNode" />
-              <item name="servlet" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="aem-crud-engine" type="b2602c69:ProjectViewProjectNode" />
@@ -570,6 +518,83 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="aem-crud-engine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aem_crud_engine" type="462c0819:PsiDirectoryNode" />
+              <item name="ui.apps" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="content" type="462c0819:PsiDirectoryNode" />
+              <item name="jcr_root" type="462c0819:PsiDirectoryNode" />
+              <item name="etc" type="462c0819:PsiDirectoryNode" />
+              <item name="clientlibs" type="462c0819:PsiDirectoryNode" />
+              <item name="aem-crud-engine" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aem-crud-engine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aem_crud_engine" type="462c0819:PsiDirectoryNode" />
+              <item name="ui.apps" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="content" type="462c0819:PsiDirectoryNode" />
+              <item name="jcr_root" type="462c0819:PsiDirectoryNode" />
+              <item name="etc" type="462c0819:PsiDirectoryNode" />
+              <item name="clientlibs" type="462c0819:PsiDirectoryNode" />
+              <item name="aem-crud-engine" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="angular" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aem-crud-engine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aem_crud_engine" type="462c0819:PsiDirectoryNode" />
+              <item name="ui.apps" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="content" type="462c0819:PsiDirectoryNode" />
+              <item name="jcr_root" type="462c0819:PsiDirectoryNode" />
+              <item name="etc" type="462c0819:PsiDirectoryNode" />
+              <item name="clientlibs" type="462c0819:PsiDirectoryNode" />
+              <item name="aem-crud-engine" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="angular" type="462c0819:PsiDirectoryNode" />
+              <item name="factories" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aem-crud-engine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aem_crud_engine" type="462c0819:PsiDirectoryNode" />
+              <item name="ui.apps" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="content" type="462c0819:PsiDirectoryNode" />
+              <item name="jcr_root" type="462c0819:PsiDirectoryNode" />
+              <item name="etc" type="462c0819:PsiDirectoryNode" />
+              <item name="clientlibs" type="462c0819:PsiDirectoryNode" />
+              <item name="aem-crud-engine" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="angular" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aem-crud-engine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aem_crud_engine" type="462c0819:PsiDirectoryNode" />
+              <item name="ui.apps" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="content" type="462c0819:PsiDirectoryNode" />
+              <item name="jcr_root" type="462c0819:PsiDirectoryNode" />
+              <item name="etc" type="462c0819:PsiDirectoryNode" />
+              <item name="clientlibs" type="462c0819:PsiDirectoryNode" />
+              <item name="aem-crud-engine" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="angular" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -767,15 +792,15 @@
       <workItem from="1512766730958" duration="4705000" />
       <workItem from="1513183775700" duration="13969000" />
       <workItem from="1513289593168" duration="1369000" />
-      <workItem from="1513292135453" duration="7992000" />
+      <workItem from="1513292135453" duration="14959000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="125266000" />
+    <option name="totallyTimeSpent" value="132233000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="877" extended-state="6" />
+    <frame x="-282" y="-1057" width="1920" height="1057" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -783,15 +808,16 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15031056" sideWeight="0.15972222" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12284264" sideWeight="0.15885417" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15031056" sideWeight="0.8402778" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12284264" sideWeight="0.8411458" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20902778" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20729166" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994923" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -804,7 +830,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="combo" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4037267" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994923" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -834,27 +859,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/etc/clientlibs/aem-crud-engine/main/js/js.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/etc/clientlibs/aem-crud-engine/main/js/css.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/apsk/crud/component/CRUDEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/page/base/head.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -930,13 +934,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/content/crudEngine/crudEngine-bootstrap.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="43" column="25" lean-forward="true" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/etc/clientlibs/aem-crud-engine/libs/js/bootstrap/bootstrap.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="233">
@@ -951,13 +948,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/etc/clientlibs/aem-crud-engine/main/js/angular/services/ModalService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="52" column="0" lean-forward="true" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/etc/clientlibs/aem-crud-engine/libs/css/selectize/.content.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -965,31 +955,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/content/dynamicOverlay/clientlibs/dynamicOverlay.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/content/dynamicOverlay/clientlibs/css.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/content/dynamicOverlay/dynamicOverlay.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/etc/clientlibs/aem-crud-engine/main/js/widget-service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="40" column="56" lean-forward="true" selection-start-line="40" selection-start-column="56" selection-end-line="40" selection-end-column="56" />
         </state>
       </provider>
     </entry>
@@ -1107,33 +1076,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/content/crudEngine/clientlibs/crudEngine.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="50" column="31" lean-forward="false" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/content/crudEngine/clientlibs/crudEngine.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="24" column="3" lean-forward="false" selection-start-line="24" selection-start-column="3" selection-end-line="24" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/todo.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="135">
-            <caret line="9" column="14" lean-forward="false" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/etc/clientlibs/aem-crud-engine/main/css/main.less">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -1150,6 +1092,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/etc/clientlibs/aem-crud-engine/main/js/widget-service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="3" lean-forward="true" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/apsk/crud/servlet/XPathFromQueryBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="49" column="55" lean-forward="false" selection-start-line="49" selection-start-column="55" selection-end-line="49" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/etc/clientlibs/aem-crud-engine/libs/js/bootstrap/.content.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -1158,27 +1116,104 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/content/crudEngine/crudEngine.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="242" column="78" lean-forward="false" selection-start-line="242" selection-start-column="78" selection-end-line="242" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/apsk/crud/servlet/XPathFromQueryBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="49" column="55" lean-forward="true" selection-start-line="49" selection-start-column="55" selection-end-line="49" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/main/java/com/apsk/crud/service/CRUDService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="128" column="31" lean-forward="true" selection-start-line="128" selection-start-column="31" selection-end-line="128" selection-end-column="31" />
+        <state relative-caret-position="340">
+          <caret line="215" column="50" lean-forward="true" selection-start-line="215" selection-start-column="50" selection-end-line="215" selection-end-column="50" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/content/crudEngine/crudEngine-bootstrap.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="119" column="36" lean-forward="true" selection-start-line="119" selection-start-column="36" selection-end-line="119" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/content/dynamicOverlay/dynamicOverlay.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="24" lean-forward="false" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/content/dynamicOverlay/clientlibs/dynamicOverlay.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="12" lean-forward="true" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/content/crudEngine/crudEngine.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="542">
+          <caret line="244" column="18" lean-forward="false" selection-start-line="244" selection-start-column="18" selection-end-line="244" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/etc/clientlibs/aem-crud-engine/main/js/angular/services/ModalService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="55" lean-forward="true" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/etc/clientlibs/aem-crud-engine/main/js/angular/factories/ModalFactory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/content/crudEngine/clientlibs/crudEngine.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/etc/clientlibs/aem-crud-engine/main/js/angular/modules/CRUDEngineModule.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="3" lean-forward="true" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/apsk/crud/component/CRUDEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui.apps/src/main/content/jcr_root/apps/aem-crud-engine/components/content/crudEngine/clientlibs/crudEngine.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" column="51" lean-forward="true" selection-start-line="34" selection-start-column="51" selection-end-line="34" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/todo.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="90">
+            <caret line="6" column="11" lean-forward="true" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

@@ -1,5 +1,4 @@
 .crud-engine {
-
   h2 {
     padding: 0;
     text-align: center;
@@ -8,6 +7,7 @@
   .selectize-control {
     width: 300px;
   }
+
   .node_value {
     label {
       margin-top: 10px;
@@ -73,9 +73,16 @@
 
     &[readonly] {
       background: lightgrey;
+      width: 400px;
       height: 66px;
     }
   }
+    
+    .action_display{
+        textarea[readonly]{
+            height: 110px;
+        }
+    }
 
   .node_type input {
     width: 250px;
@@ -84,4 +91,8 @@
   .coral-BasicList-item-contentContainer {
     width: 230px;
   }
+}
+
+body .coral-Dialog-wrapper{
+  min-width: 50rem;
 }

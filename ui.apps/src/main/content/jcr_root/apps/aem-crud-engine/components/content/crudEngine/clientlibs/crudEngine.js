@@ -1,5 +1,5 @@
 angular.module("CRUDEngineCtrl",[])
-    .controller("crudEngineCtrl",["$scope", "modalFactory", function($scope, modalFactory){
+    .controller("crudEngineCtrl",["$scope", function($scope){
 
         $scope.pipes = {};
 
@@ -7,7 +7,7 @@ angular.module("CRUDEngineCtrl",[])
         $scope.pipes.path_operation = 'recursive';
         $scope.pipes.action = 'none';
         $scope.pipes.property_operation = 'none';
-        $scope.pipes.node = "*";
+        //$scope.pipes.node = "";
         $scope.pipes.node_operation = 'none';
 
         // set active tab to simple
@@ -37,7 +37,9 @@ angular.module("CRUDEngineCtrl",[])
 
                     $scope.pipes.first_path = query_result[0];
 
-                    modalFactory.triggerModal("/etc/crud-engine/overlay.html", "overlayCtrl", $pass);
+                    //modalFactory.triggerModal("/etc/crud-engine/overlay.html", "overlayCtrl", $pass);
+                    createDialog(query_result);
+
 
                     crudEngine.firstResult(query_result[0], function(response){
                         if (response.responseText) {
@@ -47,6 +49,41 @@ angular.module("CRUDEngineCtrl",[])
                 }
             });
         };
+
+        function createDialog(results){
+
+            var innerHTML = '<table id="input_results" class="table table-striped table-bordered" cellspacing="0" width="100%">' +
+                '<thead><tr><th>Path</th></tr></thead>';
+
+            innerHTML += '<tbody>';
+
+            for (var result in results){
+                if (result != 'remove') {
+                    innerHTML += '<tr><td><a target="_blank" href="http://localhost:4502/crx/de/index.jsp#' + results[result] + '">' + results[result] + '</a></td></tr>';
+                }
+            }
+
+            innerHTML += '</tbody></table>';
+
+            var dialog = new Coral.Dialog().set({
+                id: 'myDialog',
+                header: {
+                    innerHTML: 'Query Results: ' + $scope.pipes.query
+                },
+                content: {
+                    innerHTML: innerHTML
+                },
+                footer: {
+                    innerHTML: '<button is="coral-button" variant="primary" coral-close>Close</button>'
+                }
+            });
+
+            document.body.appendChild(dialog);
+
+            angular.element("#input_results").DataTable();
+
+            dialog.show();
+        }
 
         $scope.treeSearch = function(){
             angular.element(".crud-engine .x-form-trigger.x-form-search-trigger").click();
@@ -139,11 +176,13 @@ angular.module("CRUDEngineCtrl",[])
                 if ($scope.pipes.node_operation == 'none') {
                     xpath += "*";
                 } else if ($scope.pipes.node_operation == 'name') {
-                    xpath += "element(" + $scope.pipes.node + ")";
+                    var node = ($scope.pipes.node == "") ? "*" : $scope.pipes.node;
+                    xpath += "element(" + node + ")";
                 } else if ($scope.pipes.node_operation == 'type') {
                     xpath += "element(*," + $scope.pipes.node_type + ")";
                 } else {
-                    xpath += "element(" + $scope.pipes.node + "," + $scope.pipes.node_type + ")";
+                    var node = ($scope.pipes.node == "") ? "*" : $scope.pipes.node;
+                    xpath += "element(" + node + "," + $scope.pipes.node_type + ")";
                 }
             }
 
@@ -214,9 +253,42 @@ angular.module("CRUDEngineCtrl",[])
         }
 
         function updateOutputFromPipes(){
+            var outputParam = "";
+
+            if ($scope.pipes.action){
+                if ($scope.pipes.action == 'delete' || $scope.pipes.action == 'none'){
+                    outputParam += "action=" + $scope.pipes.action;
+                } else {
+                    outputParam += "action=" + $scope.pipes.action + "&";
+                }
+
+                if ($scope.pipes.action == 'replace'){
+                    outputParam += "action_property=" + $scope.pipes.action_property + "&";
+                    outputParam += "find=" + $scope.pipes.find + "&";
+                    outputParam += "replace=" + $scope.pipes.replace;
+                } else if ($scope.pipes.action == 'write') {
+                    outputParam += "action_property=" + $scope.pipes.action_property + "&";
+                    outputParam += "write=" + $scope.pipes.write;
+                } else if ($scope.pipes.action == 'conditional'){
+                    outputParam += "action_property=" + $scope.pipes.action_property + "&";
+                    outputParam += "condition=" + $scope.pipes.condition;
+                    outputParam += "condition_operation=" + $scope.pipes.condition_opetation;
+                    outputParam += "condition_value=" + $scope.pipes.condition_value;
+                    outputParam += "expr1=" + $scope.pipes.expr1;
+                    outputParam += "expr2=" + $scope.pipes.expr2;
+                } else if ($scope.pipes.action == 'mkdir'){
+                    outputParam += "folder=" + $scope.pipes.folder;
+                }
+            }
+
+            $scope.pipes.output = outputParam;
+            updateGeneratedJavaFromPipes();
+        }
+        
+        function updateGeneratedJavaFromPipes(){
             var newLine = "%0A";
             var outputParam = "PipeBuilder pipeBuilder = plumber.newPipe(resolver);" + newLine
-                + "pipeBuilder.xpath(\"" + $scope.pipes.query + "\");" + newLine;
+                + "pipeBuilder.xpath(\"" + decodeURIComponent(encodeURIComponent($scope.pipes.query).replace(newLine,"")) + "\");" + newLine;
             
             if ($scope.pipes.parent){
                 outputParam += "pipeBuilder.parent();" + newLine;
@@ -238,7 +310,7 @@ angular.module("CRUDEngineCtrl",[])
             
             outputParam += "pipeBuilder.run();";
 
-            $scope.pipes.output = decodeURIComponent(outputParam);
+            $scope.pipes.java = decodeURIComponent(outputParam);
         }
     }]);
 
