@@ -9,6 +9,12 @@ This project uses:
 * Java 1.8
 * Maven 3.2
 
+Bundles:
+* Sling Pipes
+* Sling Query
+* JSON API
+* GSON
+
 Maven Includes Used: https://mvnrepository.com
 <pre>
 <code>
