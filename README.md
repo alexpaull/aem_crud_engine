@@ -1,5 +1,6 @@
 AEM CRUD ENGINE
 ===============
+AEM Crud Engine is a tool that can be used to search the JCR using XPath, QueryBuilder, or a Simple Query UI. The tool allows you to take the results from your query and make bulk updates utilizing Sling Pipes.
 
 This a content package project generated using the AEM Multimodule Lazybones template.
 
